@@ -4,7 +4,7 @@ import './buscador.css';
 
 const brands = [
   'Kenworth', 'Freightliner', 'International', 'Mercedes Benz',
-  'Mack', 'Volvo', 'Scania', 'Peterbilt',
+  'Mack', 'Volvo',
 ];
 
 const categories = [

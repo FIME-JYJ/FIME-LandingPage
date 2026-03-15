@@ -6,7 +6,7 @@ import './principal.css';
 const slides = [
   {
     title: 'Repuestos de Alta Calidad',
-    subtitle: 'Para camiones de todas las marcas. Disponibilidad inmediata y envio a todo el pais.',
+    subtitle: 'Para camiones Americanos(Volvo, Freightliner, Internacional, Kenworth, etc). Disponibilidad inmediata y envio a todo el pais.',
   },
   {
     title: 'Mas de 10,000 Referencias',
@@ -29,7 +29,7 @@ export default function Principal() {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(() => setCurrent((p) => (p + 1) % slides.length), 5000);
+    const t = setInterval(() => setCurrent((p) => (p + 1) % slides.length), 7000);
     return () => clearInterval(t);
   }, []);
 

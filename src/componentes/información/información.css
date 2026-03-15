@@ -7,8 +7,8 @@
 .marcas__track-wrap {
   overflow: hidden;
   margin-top: 8px;
-  -webkit-mask: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
-  mask: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
 }
 .marcas__track {
   display: flex;
@@ -26,13 +26,16 @@
   color: var(--navy);
   font-weight: 700;
   font-size: 0.88rem;
-  padding: 12px 28px;
+  padding: 16px 32px;
   border-radius: 40px;
   white-space: nowrap;
   box-shadow: var(--shadow);
   transition: border-color 0.2s, color 0.2s;
   letter-spacing: 0.3px;
   cursor: default;
+  display: inline-flex;       /* Centrado horizontal/vertical */
+  align-items: center;
+  justify-content: center;
 }
 .marcas__chip:hover { border-color: var(--cyan); color: var(--cyan); }
 
@@ -118,7 +121,7 @@ strong { color: var(--navy); }
   margin: 0 auto 32px;
 }
 .about__logo-fime {
-  font-family: var(--font-condensed);
+  font-family: var(--font-condensed), sans-serif;
   font-size: 2.8rem;
   font-weight: 800;
   color: var(--white);
@@ -143,7 +146,7 @@ strong { color: var(--navy); }
 }
 .about__stat { text-align: center; }
 .about__stat-num {
-  font-family: var(--font-condensed);
+  font-family: var(--font-condensed), sans-serif;
   font-size: 1.7rem;
   font-weight: 800;
   color: var(--white);
@@ -166,4 +169,22 @@ strong { color: var(--navy); }
   .about__inner { grid-template-columns: 1fr; gap: 40px; }
   .about__visual { order: -1; }
   .about__card { max-width: 100%; padding: 36px 28px; }
+}
+@media (max-width: 480px) {
+  .marcas__logo-img { height: 64px; }
+  .marcas__chip { padding: 10px 18px; }
+}
+
+.marcas__logo-img {
+    height: 90px;       /* Aumentado para que las marcas se noten más */
+    width: auto;        /* Mantiene la proporción de la imagen */
+    object-fit: contain; /* Evita que la imagen se estire */
+}
+
+/* Ajustes específicos para logos que son más anchos o pequeños */
+.marcas__logo-img.freightliner-logo {
+    transform: scale(1.7); /* Aumenta el tamaño un 70% */
+}
+.marcas__logo-img.volvo-logo {
+    transform: scale(1.25); /* Aumenta el tamaño un 25% */
 }
