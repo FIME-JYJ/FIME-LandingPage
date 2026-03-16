@@ -1,9 +1,23 @@
 import { FiCheckCircle } from 'react-icons/fi';
 import './información.css';
 
+import FreightlinerLogo from '../../img/Freightliner.png';
+
+import InternacionalLogo from '../../img/Internacional.png';
+import KenworthLogo from '../../img/Kenworth.jpg';
+import MackLogo from '../../img/Mack.jpg';
+import MercedesBenzLogo from '../../img/MercedesBenz.png';
+import VolvoLogo from '../../img/Volvo.webp';
+import WesternStarLogo from '../../img/WesternStar.png';
+
 const brands = [
-  'Kenworth', 'Freightliner', 'International', 'Mercedes Benz',
-  'Mack', 'Volvo', 'Scania', 'Peterbilt', 'Western Star', 'Hino',
+    { name: 'FreightLiner', logo: FreightlinerLogo, className: 'freightliner-logo' },
+    { name: 'Internacional', logo: InternacionalLogo },
+    { name: 'Kenworth', logo: KenworthLogo },
+    { name: 'Mack', logo: MackLogo },
+    { name: 'Mercedes Benz', logo: MercedesBenzLogo },
+    { name: 'Volvo', logo: VolvoLogo, className: 'volvo-logo' },
+    { name: 'Western Star', logo: WesternStarLogo },
 ];
 
 const features = [
@@ -27,7 +41,13 @@ export default function Informacion() {
         <div className="marcas__track-wrap">
           <div className="marcas__track">
             {[...brands, ...brands].map((b, i) => (
-              <div key={i} className="marcas__chip">{b}</div>
+              <div key={i} className="marcas__chip">
+                  <img
+                  src={b.logo}      /* Usa la imagen importada */
+                  alt={b.name}      /* Usa el nombre como texto alternativo */
+                  className={`marcas__logo-img ${b.className || ''}`} /* Clase para darle tamaño en el CSS */
+              />
+              </div>
             ))}
           </div>
         </div>
