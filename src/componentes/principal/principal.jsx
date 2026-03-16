@@ -6,7 +6,7 @@ import './principal.css';
 const slides = [
   {
     title: 'Repuestos de Alta Calidad',
-    subtitle: 'Para camiones Americanos(Volvo, Freightliner, Internacional, Kenworth, etc). Disponibilidad inmediata y envio a todo el pais.',
+    subtitle: 'Para camiones Americanos (Volvo, Freightliner, Internacional, Kenworth, etc). Disponibilidad inmediata y envio a todo el pais.',
   },
   {
     title: 'Mas de 10,000 Referencias',
