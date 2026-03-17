@@ -125,19 +125,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Category Bar */}
-      <div className="catbar">
-        <div className="container catbar__inner">
-          <button className="catbar__all">
-            <FiMenu className="catbar__all-icon" /> Todos los Productos
-          </button>
-          {categories.map((cat) => (
-            <Link key={cat.name} to="/#productos" className="catbar__link" onClick={() => setMenuOpen(false)}>
-              {cat.name}
-            </Link>
-          ))}
-        </div>
-      </div>
+
     </>
   );
 }
