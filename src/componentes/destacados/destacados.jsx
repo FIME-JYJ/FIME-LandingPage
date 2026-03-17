@@ -6,19 +6,19 @@ const categories = [
     name: 'Motor',
     icon: FiSettings,
     subcats: ['Cummins ISX', 'Cummins ISM', 'Mercedes Benz', 'Caterpillar'],
-    image: null, // Espacio reservado para imagen
+    image: '/img/Categories/motor.webp',
   },
   {
     name: 'Cabina',
     icon: FiBox,
     subcats: ['Asientos', 'Tablero', 'Aire Acondicionado', 'Vidrios'],
-    image: null, // Espacio reservado para imagen
+    image: '/img/Categories/cabina.webp',
   },
   {
     name: 'Chasis',
     icon: FiTruck,
     subcats: ['Suspensión', 'Frenos', 'Transmisión', 'Ejes'],
-    image: null, // Espacio reservado para imagen
+    image: '/img/Categories/chasis.webp',
   },
 ];
 
@@ -50,20 +50,16 @@ export default function Destacados() {
           </div>
 
           <div className="categorias__grid">
-            {categories.map(({ name, icon: Icon, subcats }) => (
-              <div key={name} className="catcard">
-                <div className="catcard__icon-wrap">
-                  <Icon className="catcard__icon" />
+            {categories.map(({ name, icon: Icon, subcats, image }) => (
+              <div key={name} className="catcard" style={{ backgroundImage: `url(${image})` }}>
+                <div className="catcard__overlay">
+                  <div className="catcard__content">
+                    <h3 className="catcard__name">{name}</h3>
+                    <div className="catcard__arrow-btn">
+                      <FiArrowRight className="catcard__arrow" />
+                    </div>
+                  </div>
                 </div>
-                <h3 className="catcard__name">{name}</h3>
-                <ul className="catcard__list">
-                  {subcats.map((s) => (
-                    <li key={s}><a href="#productos">{s}</a></li>
-                  ))}
-                </ul>
-                <a href="#productos" className="catcard__link">
-                  Ver todos <FiArrowRight className="catcard__arrow" />
-                </a>
               </div>
             ))}
           </div>

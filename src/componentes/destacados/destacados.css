@@ -4,79 +4,99 @@
 .categorias__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  max-width: 900px;
+  gap: 20px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .catcard {
-  background: var(--white);
+  position: relative;
+  height: 300px;
   border-radius: var(--radius);
-  padding: 32px 28px;
-  box-shadow: var(--shadow);
-  transition: transform 0.28s, box-shadow 0.28s, border-top-color 0.28s;
-  border-top: 3px solid transparent;
-  text-align: center;
-}
-.catcard:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-  border-top-color: var(--cyan);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.catcard__icon-wrap {
-  width: 64px; height: 64px;
-  background: var(--gray-100);
-  border-radius: var(--radius-sm);
+.catcard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.catcard__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 30px;
+  transition: background 0.3s ease;
+}
+
+.catcard:hover .catcard__overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+}
+
+.catcard__content {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 0 auto 18px;
-  transition: background 0.25s;
+  justify-content: space-between;
+  width: 100%;
 }
-.catcard:hover .catcard__icon-wrap { background: rgba(0, 170, 255, 0.1); }
-
-.catcard__icon {
-  font-size: 1.8rem;
-  color: var(--navy);
-  transition: color 0.25s;
-}
-.catcard:hover .catcard__icon { color: var(--cyan); }
 
 .catcard__name {
   font-family: var(--font-condensed);
-  font-size: 1.25rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 16px;
+  color: var(--white);
+  margin: 0;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.catcard__list { margin-bottom: 22px; }
-.catcard__list li {
-  padding: 6px 0;
-  font-size: 0.86rem;
-  color: var(--gray-600);
-  border-bottom: 1px dashed var(--gray-200);
-}
-.catcard__list li a {
-  color: inherit;
-  transition: color 0.15s;
-}
-.catcard__list li a:hover { color: var(--cyan); }
-
-.catcard__link {
-  display: inline-flex;
+.catcard__arrow-btn {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
   align-items: center;
-  gap: 5px;
-  color: var(--cyan);
-  font-size: 0.85rem;
-  font-weight: 600;
-  transition: gap 0.2s, color 0.2s;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
-.catcard__link:hover { color: var(--navy); gap: 9px; }
-.catcard__arrow { font-size: 0.95rem; }
+
+.catcard:hover .catcard__arrow-btn {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  transform: scale(1.1);
+}
+
+.catcard__arrow {
+  font-size: 1.5rem;
+  color: var(--white);
+  transition: transform 0.3s ease;
+}
+
+.catcard:hover .catcard__arrow {
+  transform: translateX(3px);
+}
 
 /* ===== PRODUCTOS ===== */
 .productos { background: var(--white); }
@@ -205,9 +225,39 @@
     max-width: 600px;
   }
   .productos__grid { grid-template-columns: repeat(2, 1fr); }
+  
+  .catcard {
+    height: 250px;
+  }
+  
+  .catcard__name {
+    font-size: 1.5rem;
+  }
+  
+  .catcard__overlay {
+    padding: 20px;
+  }
 }
+
 @media (max-width: 560px) {
   .categorias__grid,
   .productos__grid { grid-template-columns: 1fr; }
   .categorias__grid { max-width: 400px; }
+  
+  .catcard {
+    height: 200px;
+  }
+  
+  .catcard__name {
+    font-size: 1.3rem;
+  }
+  
+  .catcard__arrow-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .catcard__arrow {
+    font-size: 1.2rem;
+  }
 }
