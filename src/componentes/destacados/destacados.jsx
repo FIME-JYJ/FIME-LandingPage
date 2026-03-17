@@ -1,46 +1,34 @@
-import { FiSettings, FiDisc, FiSliders, FiFilter, FiWind, FiTool, FiShoppingCart, FiArrowRight } from 'react-icons/fi';
+import { FiSettings, FiBox, FiTruck, FiShoppingCart, FiArrowRight } from 'react-icons/fi';
 import './destacados.css';
 
 const categories = [
   {
-    name: 'Motores',
+    name: 'Motor',
     icon: FiSettings,
-    subcats: ['Cummins ISX', 'Cummins ISM', 'Mercedes Benz'],
+    subcats: ['Cummins ISX', 'Cummins ISM', 'Mercedes Benz', 'Caterpillar'],
+    image: null, // Espacio reservado para imagen
   },
   {
-    name: 'Suspension',
-    icon: FiDisc,
-    subcats: ['Amortiguadores', 'Bujes', 'Rodamientos'],
+    name: 'Cabina',
+    icon: FiBox,
+    subcats: ['Asientos', 'Tablero', 'Aire Acondicionado', 'Vidrios'],
+    image: null, // Espacio reservado para imagen
   },
   {
-    name: 'Frenos de Aire',
-    icon: FiSliders,
-    subcats: ['Valvulas', 'Bendix', 'Compresores'],
-  },
-  {
-    name: 'Filtracion',
-    icon: FiFilter,
-    subcats: ['Filtros de Aceite', 'Filtros de Aire', 'Filtros Combustible'],
-  },
-  {
-    name: 'Aire Acondicionado',
-    icon: FiWind,
-    subcats: ['Condensador', 'Compresor A/C', 'Evaporador'],
-  },
-  {
-    name: 'Accesorios',
-    icon: FiTool,
-    subcats: ['Correas', 'Tensores', 'Sensores'],
+    name: 'Chasis',
+    icon: FiTruck,
+    subcats: ['Suspensión', 'Frenos', 'Transmisión', 'Ejes'],
+    image: null, // Espacio reservado para imagen
   },
 ];
 
 const products = [
-  { id: 1, name: 'Kit de Empaque Cummins ISX', price: '$320.000', category: 'Motores',    tag: 'Nuevo',   icon: FiSettings },
-  { id: 2, name: 'Amortiguador Delantero Kenworth', price: '$185.000', category: 'Suspension', tag: 'Popular', icon: FiDisc },
-  { id: 3, name: 'Valvula Relay Bendix R-12', price: '$95.000',  category: 'Frenos',     tag: 'Oferta',  icon: FiSliders },
-  { id: 4, name: 'Filtro de Aire Primario Freightliner', price: '$65.000',  category: 'Filtracion', tag: 'Nuevo',   icon: FiFilter },
-  { id: 5, name: 'Compresor A/C International', price: '$450.000', category: 'A/C',        tag: 'Popular', icon: FiWind },
-  { id: 6, name: 'Rodamiento Rueda Trasera', price: '$78.000',  category: 'Suspension', tag: null,      icon: FiDisc },
+  { id: 1, name: 'Kit de Empaque Cummins ISX', price: '$320.000', category: 'Motor',    tag: 'Nuevo',   icon: FiSettings },
+  { id: 2, name: 'Asiento Conductor Kenworth', price: '$185.000', category: 'Cabina', tag: 'Popular', icon: FiBox },
+  { id: 3, name: 'Amortiguador Delantero', price: '$95.000',  category: 'Chasis',     tag: 'Oferta',  icon: FiTruck },
+  { id: 4, name: 'Turbo Cummins ISM', price: '$650.000',  category: 'Motor', tag: 'Nuevo',   icon: FiSettings },
+  { id: 5, name: 'Tablero Internacional', price: '$450.000', category: 'Cabina',        tag: 'Popular', icon: FiBox },
+  { id: 6, name: 'Sistema de Frenos Bendix', price: '$278.000',  category: 'Chasis', tag: null,      icon: FiTruck },
 ];
 
 const tagColors = {

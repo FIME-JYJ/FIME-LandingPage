@@ -1,5 +1,5 @@
 import { FiCheckCircle } from 'react-icons/fi';
-import './información.css';
+import './informacion.css';
 
 import FreightlinerLogo from '../../img/Freightliner.png';
 
@@ -41,7 +41,7 @@ export default function Informacion() {
         <div className="marcas__track-wrap">
           <div className="marcas__track">
             {[...brands, ...brands].map((b, i) => (
-              <div key={i} className="marcas__chip">
+              <div key={`${b.name}-${i}`} className="marcas__chip">
                   <img
                   src={b.logo}      /* Usa la imagen importada */
                   alt={b.name}      /* Usa el nombre como texto alternativo */

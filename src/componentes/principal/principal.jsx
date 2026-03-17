@@ -6,7 +6,7 @@ import './principal.css';
 const slides = [
   {
     title: 'Repuestos de Alta Calidad',
-    subtitle: 'Para camiones Americanos(Volvo, Freightliner, Internacional, Kenworth, etc). Disponibilidad inmediata y envio a todo el pais.',
+    subtitle: 'Para camiones Americanos (Volvo, Freightliner, Internacional, Kenworth, etc). Disponibilidad inmediata y envio a todo el pais.',
   },
   {
     title: 'Mas de 10,000 Referencias',
@@ -27,11 +27,40 @@ const stats = [
 
 export default function Principal() {
   const [current, setCurrent] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    const t = setInterval(() => setCurrent((p) => (p + 1) % slides.length), 7000);
-    return () => clearInterval(t);
-  }, []);
+    if (isPaused) return;
+
+    const interval = 100; // Actualizar cada 100ms
+    const duration = 6000; // 6 segundos total
+    const increment = (interval / duration) * 100;
+
+    const progressTimer = setInterval(() => {
+      setProgress(prev => {
+        if (prev >= 100) {
+          setCurrent(curr => (curr + 1) % slides.length);
+          return 0;
+        }
+        return prev + increment;
+      });
+    }, interval);
+
+    return () => clearInterval(progressTimer);
+  }, [isPaused]);
+
+  const handleDotClick = (index) => {
+    if (current === index) {
+      // Si es el mismo slide, pausar/reanudar
+      setIsPaused(!isPaused);
+    } else {
+      // Si es diferente slide, cambiar y pausar
+      setCurrent(index);
+      setProgress(0);
+      setIsPaused(true);
+    }
+  };
 
   return (
     <>
@@ -59,15 +88,34 @@ export default function Principal() {
           <img src={fimeLogo} alt="Fime Repuestos" className="hero__badge-img" />
         </div>
 
-        {/* Dots */}
+        {/* Numbered Dots with Progress */}
         <div className="hero__dots">
           {slides.map((_, i) => (
             <button
               key={i}
               className={`hero__dot${current === i ? ' hero__dot--active' : ''}`}
-              onClick={() => setCurrent(i)}
+              onClick={() => handleDotClick(i)}
               aria-label={`Slide ${i + 1}`}
-            />
+            >
+              <svg className="hero__dot-progress" viewBox="0 0 36 36">
+                <circle
+                  className="hero__dot-bg"
+                  cx="18"
+                  cy="18"
+                  r="16"
+                />
+                <circle
+                  className="hero__dot-fill"
+                  cx="18"
+                  cy="18"
+                  r="16"
+                  style={{
+                    strokeDashoffset: current === i ? 100 - progress : 100
+                  }}
+                />
+              </svg>
+              <span className="hero__dot-number">{i + 1}</span>
+            </button>
           ))}
         </div>
       </section>
