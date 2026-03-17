@@ -28,8 +28,11 @@ const stats = [
 export default function Principal() {
   const [current, setCurrent] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    if (isPaused) return;
+
     const interval = 100; // Actualizar cada 100ms
     const duration = 6000; // 6 segundos total
     const increment = (interval / duration) * 100;
@@ -45,11 +48,18 @@ export default function Principal() {
     }, interval);
 
     return () => clearInterval(progressTimer);
-  }, []);
+  }, [isPaused]);
 
   const handleDotClick = (index) => {
-    setCurrent(index);
-    setProgress(0);
+    if (current === index) {
+      // Si es el mismo slide, pausar/reanudar
+      setIsPaused(!isPaused);
+    } else {
+      // Si es diferente slide, cambiar y pausar
+      setCurrent(index);
+      setProgress(0);
+      setIsPaused(true);
+    }
   };
 
   return (
