@@ -55,10 +55,10 @@ export default function Principal() {
       // Si es el mismo slide, pausar/reanudar
       setIsPaused(!isPaused);
     } else {
-      // Si es diferente slide, cambiar y pausar
+      // Si es diferente slide, cambiar y reanudar automáticamente
       setCurrent(index);
       setProgress(0);
-      setIsPaused(true);
+      setIsPaused(false);
     }
   };
 
