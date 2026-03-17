@@ -9,6 +9,7 @@ import Footer from './componentes/footer/footer';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Catalogo from './componentes/catalogo/Catalogo';
+import WhatsAppButton from './componentes/whatsapp/whatsapp';
 
 // Aquí definimos la "Página Nueva" del Catálogo
 function PaginaCatalogo() {
@@ -63,6 +64,7 @@ export default function App() {
                         <Informacion />
                         <Contacto />
                         <Footer />
+                        <WhatsAppButton />
                     </>
                 } />
 
