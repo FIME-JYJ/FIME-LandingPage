@@ -46,6 +46,13 @@
   font-size: 0.93rem;
 }
 
+.cinfo__phone {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.93rem;
+  line-height: 1.4;
+}
+
 /* Form */
 .contacto__form {
   display: flex;
