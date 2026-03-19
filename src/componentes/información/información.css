@@ -188,3 +188,7 @@ strong { color: var(--navy); }
 .marcas__logo-img.volvo-logo {
     transform: scale(1.25); /* Aumenta el tamaño un 25% */
 }
+
+.marcas__logo-img.international-logo {
+    transform: scale(1.25); /* Aumenta el tamaño un 70% */
+}

@@ -3,7 +3,7 @@ import './información.css';
 
 import FreightlinerLogo from '../../img/Freightliner.png';
 
-import InternacionalLogo from '../../img/Internacional.png';
+import InternationalLogo from '../../img/International.jpg';
 import KenworthLogo from '../../img/Kenworth.jpg';
 import MackLogo from '../../img/Mack.jpg';
 import MercedesBenzLogo from '../../img/MercedesBenz.png';
@@ -12,7 +12,7 @@ import WesternStarLogo from '../../img/WesternStar.png';
 
 const brands = [
     { name: 'FreightLiner', logo: FreightlinerLogo, className: 'freightliner-logo' },
-    { name: 'Internacional', logo: InternacionalLogo },
+    { name: 'International', logo: InternationalLogo, className: 'international-logo' },
     { name: 'Kenworth', logo: KenworthLogo },
     { name: 'Mack', logo: MackLogo },
     { name: 'Mercedes Benz', logo: MercedesBenzLogo },
@@ -86,7 +86,7 @@ export default function Informacion() {
             <div className="about__card">
               <div className="about__logo">
                 <span className="about__logo-fime">fime</span>
-                <span className="about__logo-rep">+Repuestos</span>
+                <span className="about__logo-rep">Repuestos</span>
               </div>
               <div className="about__stats-mini">
                 <div className="about__stat">

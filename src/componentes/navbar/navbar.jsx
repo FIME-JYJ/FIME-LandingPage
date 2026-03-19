@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import {
-  FiPhone, FiMail, FiClock, FiShoppingCart,
+  FiPhone, FiMail, FiClock,
   FiMenu, FiX, FiChevronDown
 } from 'react-icons/fi';
 import './navbar.css';
@@ -68,7 +68,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="logo" onClick={() => setMenuOpen(false)}>
             <span className="logo__fime">fime</span>
-            <span className="logo__rep">+Repuestos</span>
+            <span className="logo__rep">Repuestos</span>
           </Link>
 
           {/* Nav */}
@@ -113,10 +113,7 @@ export default function Navbar() {
 
           {/* Actions */}
           <div className="header__actions">
-            <button className="cart">
-              <FiShoppingCart className="cart__icon" />
-              <span className="cart__badge">0</span>
-            </button>
+
             <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
               {menuOpen ? <FiX size={22} /> : <FiMenu size={22} />}
             </button>

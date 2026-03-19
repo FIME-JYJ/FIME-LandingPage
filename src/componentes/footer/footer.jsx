@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="footer__brand">
           <div className="footer__logo">
             <span className="footer__logo-fime">fime</span>
-            <span className="footer__logo-rep">+Repuestos</span>
+            <span className="footer__logo-rep">Repuestos</span>
           </div>
           <p className="footer__desc">
             Especialistas en repuestos para camiones y vehiculos de carga pesada.
