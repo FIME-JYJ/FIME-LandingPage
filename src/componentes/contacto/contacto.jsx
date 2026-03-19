@@ -9,7 +9,7 @@ const contactItems = [
   },
   { icon: FiMail,  label: 'Correo',    value: 'jjulian@fime-repuestos.com' },
   { icon: FiMapPin, label: 'Direccion', value: 'Avenida Argentina 477 Int. 113, Cercado de Lima, Perú' },
-  { icon: FiClock, label: 'Horario',   value: 'Lun - Sab: 8:00am - 6:00pm' },
+  { icon: FiClock, label: 'Horario',   value: 'Lun - Vie: 8:00am - 6:00pm · Sáb: 9:00am - 1:00pm' },
 ];
 
 export default function Contacto() {
