@@ -16,7 +16,7 @@ export default function Footer() {
             <span className="footer__logo-rep">Repuestos</span>
           </div>
           <p className="footer__desc">
-            Especialistas en repuestos para camiones y vehiculos de carga pesada.
+            Especialistas en repuestos para camiones americanos y vehiculos de carga pesada.
             Calidad garantizada en cada pieza.
           </p>
           <div className="footer__social">

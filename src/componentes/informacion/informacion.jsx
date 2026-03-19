@@ -62,7 +62,7 @@ export default function Informacion() {
             <div className="section-line" style={{ margin: '0 0 20px 0' }} />
             <p className="about__p">
               <strong>Fime Repuestos</strong> es una empresa especializada en la distribucion y
-              venta de repuestos para camiones y vehiculos de carga pesada. Con mas de 15 años de
+              venta de repuestos para camiones americanos y vehiculos de carga pesada. Con mas de 15 años de
               experiencia en el mercado, ofrecemos productos de la mas alta calidad a los mejores
               precios del mercado nacional.
             </p>
