@@ -73,6 +73,7 @@
 /* === Estilos de la Cuadrícula y Tarjetas (se mantienen) === */
 .catalogo-main {
     width: 100%;
+    margin-top: 50px;
 }
 
 .catalogo-grid {
@@ -122,6 +123,28 @@
 .vehicle-btn:hover {
     background: #00aaff;
 }
+
+/* Mensaje de Sin Resultados */
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px dashed #cbd5e1;
+    margin-top: 20px;
+}
+.no-results h3 {
+    font-size: 1.8rem;
+    color: #1a2f6e;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+.no-results p {
+    color: #64748b;
+    font-size: 1.1rem;
+}
+
 /* Zona del Hero en Catálogo */
 .catalogo-hero {
     width: 100%;
@@ -129,7 +152,7 @@
     background-image: url('../../img/fime.png'); /* Asegúrate de tener una imagen aquí */
     background-size: cover;
     background-position: center;
-    margin-bottom: 40px;
+    margin-bottom: 0;
     position: relative;
     display: flex;
     align-items: center;

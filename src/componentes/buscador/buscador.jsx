@@ -7,8 +7,20 @@ const brands = [
   'Mack', 'Volvo',
 ];
 
-export default function Buscador() {
+const types = [
+  'Motor', 'Cabina', 'Chasis', 'Suspensión', 'Transmisión'
+];
+
+export default function Buscador({ onSearch }) {
   const [term, setTerm] = useState('');
+  const [brand, setBrand] = useState('');
+  const [category, setCategory] = useState('');
+
+  const handleSearchClick = () => {
+    if (onSearch) {
+      onSearch({ brand, category, term });
+    }
+  };
 
   return (
     <section className="buscador">
@@ -18,9 +30,22 @@ export default function Buscador() {
             <FiSearch className="buscador__title-icon" /> Buscar Piezas
           </h2>
           <div className="buscador__row">
-            <select className="buscador__select">
+            <select
+              className="buscador__select"
+              value={brand}
+              onChange={(e) => setBrand(e.target.value)}
+            >
               <option value="">Seleccionar Marca</option>
               {brands.map((b) => <option key={b} value={b}>{b}</option>)}
+            </select>
+
+            <select
+              className="buscador__select"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="">Seleccionar Categoría</option>
+              {types.map((t) => <option key={t} value={t}>{t}</option>)}
             </select>
 
             <input
@@ -29,9 +54,10 @@ export default function Buscador() {
               placeholder="Referencia o nombre del repuesto..."
               value={term}
               onChange={(e) => setTerm(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleSearchClick()}
             />
 
-            <button className="buscador__btn">
+            <button className="buscador__btn" onClick={handleSearchClick}>
               <FiSearch className="buscador__btn-icon" /> Buscar
             </button>
           </div>

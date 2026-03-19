@@ -1,4 +1,5 @@
 import { FiSettings, FiBox, FiTruck, FiArrowRight } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import './destacados.css';
 
 const categories = [
@@ -38,6 +39,8 @@ const tagColors = {
 };
 
 export default function Destacados() {
+  const navigate = useNavigate();
+
   return (
     <>
       {/* Categorias */}
@@ -51,7 +54,12 @@ export default function Destacados() {
 
           <div className="categorias__grid">
             {categories.map(({ name, icon: Icon, subcats, image }) => (
-              <div key={name} className="catcard" style={{ backgroundImage: `url(${image})` }}>
+              <div
+                key={name}
+                className="catcard"
+                style={{ backgroundImage: `url(${image})`, cursor: 'pointer' }}
+                onClick={() => navigate('/catalogo')}
+              >
                 <div className="catcard__overlay">
                   <div className="catcard__content">
                     <h3 className="catcard__name">{name}</h3>

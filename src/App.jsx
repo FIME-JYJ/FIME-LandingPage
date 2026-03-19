@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './componentes/navbar/navbar';
 import Principal from './componentes/principal/principal.jsx';
-import Buscador from './componentes/buscador/buscador';
 import Destacados from './componentes/destacados/destacados';
 import Informacion from './componentes/informacion/informacion';
 import Contacto from './componentes/contacto/contacto';
@@ -59,7 +58,6 @@ export default function App() {
                 <Route path="/" element={
                     <>
                         <Principal />
-                        <Buscador />
                         <Destacados />
                         <Informacion />
                         <Contacto />
