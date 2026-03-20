@@ -126,6 +126,7 @@ export default function Principal() {
               key={i}
               className={`hero__dot${current === i ? ' hero__dot--active' : ''}`}
               onClick={() => handleDotClick(i)}
+              onTouchStart={() => handleDotClick(i)}
               aria-label={`Slide ${i + 1}`}
             >
               <svg className="hero__dot-progress" viewBox="0 0 36 36">

@@ -16,6 +16,8 @@
   background-size: 50% 100%, 100% 100%;
   background-position: left center, center center;
   background-repeat: no-repeat, no-repeat;
+  /* Asegurar que las imágenes se vean bien en todos los dispositivos */
+  background-attachment: scroll;
 }
 .hero__slide--active { opacity: 1; z-index: 1; }
 .hero__slide:nth-child(2) { background: #0a1a4d; }
@@ -148,13 +150,18 @@
   transition: all 0.22s;
   border: 2px solid transparent;
   font-family: var(--font-main);
+  /* Mejorar experiencia táctil */
+  min-height: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 .btn--primary {
   background: var(--cyan);
   color: var(--white);
   border-color: var(--cyan);
 }
-.btn--primary:hover {
+.btn--primary:hover,
+.btn--primary:focus {
   background: var(--cyan-dark);
   border-color: var(--cyan-dark);
   transform: translateY(-2px);
@@ -167,7 +174,8 @@
   backdrop-filter: blur(10px);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
-.btn--ghost:hover {
+.btn--ghost:hover,
+.btn--ghost:focus {
   background: rgba(255, 255, 255, 0.25);
   border-color: rgba(255, 255, 255, 0.9);
   transform: translateY(-2px);
@@ -262,6 +270,9 @@
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
+  /* Mejorar área táctil */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .hero__dot-progress {
@@ -310,9 +321,17 @@
   stroke: rgba(255, 255, 255, 0.4);
 }
 
-.hero__dot:hover .hero__dot-number {
+.hero__dot:hover .hero__dot-number,
+.hero__dot:focus .hero__dot-number {
   color: var(--cyan);
   transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Mejorar accesibilidad */
+.hero__dot:focus {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+  border-radius: 50%;
 }
 
 /* ===== STATS BAR ===== */
@@ -340,12 +359,258 @@
 @media (max-width: 900px) {
   .hero__badge { display: none; }
   .hero__title { font-size: 2.4rem; }
+  
+  /* Ajustar layout para tablet */
+  .hero__content {
+    margin-left: 40%;
+    width: 60%;
+    padding: 40px 30px;
+  }
+  
+  .hero__slide {
+    background-size: 40% 100%, 100% 100%;
+  }
+  
+  .hero__image-gradients {
+    width: 40%;
+  }
 }
+
+@media (max-width: 768px) {
+  .hero { 
+    height: auto; 
+    min-height: 500px; 
+  }
+  
+  /* Layout móvil: imagen de fondo completa con overlay */
+  .hero__slide {
+    background-size: cover !important;
+    background-position: center center !important;
+    align-items: flex-end;
+  }
+  
+  .hero__slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(10, 26, 77, 0.95) 0%,
+      rgba(10, 26, 77, 0.8) 30%,
+      rgba(10, 26, 77, 0.6) 50%,
+      rgba(10, 26, 77, 0.3) 70%,
+      transparent 100%
+    );
+    z-index: 1;
+  }
+  
+  .hero__content {
+    margin-left: 0;
+    width: 100%;
+    padding: 30px 20px 40px;
+    min-height: auto;
+    background: transparent !important;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .hero__image-gradients {
+    display: none;
+  }
+  
+  .hero__title { 
+    font-size: 2.2rem; 
+    margin-bottom: 16px;
+  }
+  
+  .hero__subtitle { 
+    font-size: 1rem;
+    margin-bottom: 28px;
+    max-width: none;
+  }
+  
+  .hero__ctas {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .btn {
+    justify-content: center;
+    padding: 14px 24px;
+    font-size: 0.95rem;
+  }
+}
+
 @media (max-width: 600px) {
-  .hero { height: auto; min-height: 420px; }
-  .hero__title { font-size: 1.9rem; }
-  .hero__subtitle { font-size: 0.95rem; }
-  .statsbar__inner { gap: 24px; justify-content: flex-start; padding: 0 8px; }
+  .hero { 
+    min-height: 450px; 
+  }
+  
+  .hero__title { 
+    font-size: 1.9rem; 
+  }
+  
+  .hero__subtitle { 
+    font-size: 0.95rem; 
+  }
+  
+  .hero__content {
+    padding: 25px 16px 35px;
+  }
+  
+  .hero__dots {
+    bottom: 16px;
+    gap: 12px;
+  }
+  
+  .hero__dot {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .hero__dot-number {
+    font-size: 0.8rem;
+  }
+  
+  .hero__dot--active .hero__dot-number {
+    font-size: 0.9rem;
+  }
+  
+  .statsbar__inner { 
+    gap: 24px; 
+    justify-content: flex-start; 
+    padding: 0 8px; 
+  }
+  
+  .statsbar__item {
+    gap: 10px;
+  }
+  
+  .statsbar__icon { 
+    font-size: 1.6rem; 
+  }
+  
+  .statsbar__num { 
+    font-size: 1.6rem; 
+  }
+  
+  .statsbar__label { 
+    font-size: 0.75rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  .hero { 
+    min-height: 400px; 
+  }
+  
+  .hero__title { 
+    font-size: 1.7rem; 
+    line-height: 1.1;
+  }
+  
+  .hero__subtitle { 
+    font-size: 0.9rem; 
+    line-height: 1.6;
+  }
+  
+  .hero__content {
+    padding: 20px 12px 30px;
+  }
+  
+  .hero__eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+  }
+  
+  .statsbar {
+    padding: 20px 0;
+  }
+  
+  .statsbar__inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .statsbar__item {
+    justify-content: center;
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Estilos adicionales para dispositivos muy pequeños */
+@media (max-width: 360px) {
+  .hero { 
+    min-height: 380px; 
+  }
+  
+  .hero__title { 
+    font-size: 1.5rem; 
+  }
+  
+  .hero__subtitle { 
+    font-size: 0.85rem; 
+  }
+  
+  .hero__content {
+    padding: 18px 10px 28px;
+  }
+  
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .hero__dots {
+    gap: 10px;
+    bottom: 12px;
+  }
+  
+  .hero__dot {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .hero__dot-number {
+    font-size: 0.75rem;
+  }
+  
+  .hero__dot--active .hero__dot-number {
+    font-size: 0.85rem;
+  }
+}
+
+/* Mejoras para orientación landscape en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    min-height: 350px;
+  }
+  
+  .hero__content {
+    padding: 20px 20px 25px;
+  }
+  
+  .hero__title {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+  
+  .hero__subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero__ctas {
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
 }
 
 /* Máscara circular de brillo para resaltar los camiones */
