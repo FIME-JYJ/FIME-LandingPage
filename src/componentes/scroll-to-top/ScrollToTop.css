@@ -1,0 +1,124 @@
+/* ===== SCROLL TO TOP BUTTON ===== */
+.scroll-to-top {
+  position: fixed;
+  bottom: 160px; /* Más arriba que WhatsApp (80px + 60px botón + 20px separación) */
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--cyan);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 170, 255, 0.3);
+  transition: all 0.3s ease;
+  z-index: 999; /* Un poco menos que WhatsApp para evitar conflictos */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  /* Mejorar experiencia táctil */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.scroll-to-top--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  animation: scrollTopFadeIn 0.3s ease-out;
+}
+
+.scroll-to-top:hover,
+.scroll-to-top:focus {
+  background: var(--cyan-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 170, 255, 0.4);
+}
+
+.scroll-to-top:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 170, 255, 0.5);
+}
+
+.scroll-to-top__icon {
+  color: var(--white);
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.scroll-to-top:hover .scroll-to-top__icon {
+  transform: translateY(-2px);
+}
+
+/* Accesibilidad */
+.scroll-to-top:focus {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+}
+
+/* Responsive para el botón scroll to top */
+@media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 140px; /* Más arriba que WhatsApp móvil (70px + 55px botón + 15px separación) */
+    right: 20px;
+    width: 45px;
+    height: 45px;
+  }
+  
+  .scroll-to-top__icon {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-to-top {
+    bottom: 135px; /* Ajuste fino para móviles pequeños */
+    right: 16px;
+    width: 42px;
+    height: 42px;
+  }
+  
+  .scroll-to-top__icon {
+    font-size: 1rem;
+  }
+}
+
+/* Animación de entrada suave */
+@keyframes scrollTopFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Variante con colores alternativos para diferentes secciones */
+.scroll-to-top--navy {
+  background: var(--navy);
+  box-shadow: 0 4px 20px rgba(26, 47, 110, 0.3);
+}
+
+.scroll-to-top--navy:hover,
+.scroll-to-top--navy:focus {
+  background: var(--navy-dark);
+  box-shadow: 0 8px 30px rgba(26, 47, 110, 0.4);
+}
+
+/* Efecto de pulso sutil cuando está visible */
+.scroll-to-top--visible {
+  animation: scrollTopFadeIn 0.3s ease-out, scrollTopPulse 3s ease-in-out infinite 2s;
+}
+
+@keyframes scrollTopPulse {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(0, 170, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(0, 170, 255, 0.5);
+  }
+}

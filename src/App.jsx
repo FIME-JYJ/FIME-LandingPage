@@ -5,6 +5,7 @@ import Destacados from './componentes/destacados/destacados';
 import Informacion from './componentes/informacion/informacion';
 import Contacto from './componentes/contacto/contacto';
 import Footer from './componentes/footer/footer';
+import ScrollToTop from './componentes/scroll-to-top/ScrollToTop';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Catalogo from './componentes/catalogo/Catalogo';
@@ -69,6 +70,7 @@ export default function App() {
                 {/* RUTA 2: La página nueva del catálogo */}
                 <Route path="/catalogo" element={<Catalogo />} />
             </Routes>
+            <ScrollToTop />
         </Router>
     );
 }
