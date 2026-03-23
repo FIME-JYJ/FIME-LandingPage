@@ -182,20 +182,103 @@ strong { color: var(--navy); }
   .marcas__logo-img { height: 64px; }
   .marcas__chip { padding: 10px 18px; }
 }
+/* ── Sección marcas ── */
+.marcas {
+  padding: 60px 0;
+  background-color: #0f2a4a;
+}
 
+/* Barra blanca contenedora */
+.marcas__track-wrap {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px 0;
+  margin: 32px auto;
+  max-width: 90%;
+  overflow: hidden;
+}
+
+/* Pista que se mueve */
+.marcas__track {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  width: max-content;
+  animation: scroll-brands 20s linear infinite;
+}
+
+/* Pausa cuando el cursor está sobre un chip */
+.marcas__track:has(.marcas__chip:hover) {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-brands {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Chip individual — sin caja, sin borde, sin fondo */
+.marcas__chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  padding: 0;
+}
+
+.marcas__chip:hover,
+.marcas__chip:focus {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* ── Imágenes ── */
 .marcas__logo-img {
-    height: 90px;       /* Aumentado para que las marcas se noten más */
-    width: auto;        /* Mantiene la proporción de la imagen */
-    object-fit: contain; /* Evita que la imagen se estire */
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(20%);
+  background: none !important;
+  border: none !important;
+  outline: none !important;
 }
 
-/* Ajustes específicos para logos que son más anchos o pequeños */
+/* Resalte al hacer hover sobre el logo */
+.marcas__chip:hover .marcas__logo-img {
+  filter: grayscale(0%) drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.2));
+}
+
+/* Logos con escala base personalizada */
 .marcas__logo-img.freightliner-logo {
-    transform: scale(1.7); /* Aumenta el tamaño un 70% */
+  transform: scale(1.7);
 }
+.marcas__chip:hover .marcas__logo-img.freightliner-logo {
+  transform: scale(2.2);
+}
+
 .marcas__logo-img.volvo-logo {
-    transform: scale(1.25); /* Aumenta el tamaño un 25% */
+  transform: scale(1.25);
 }
+.marcas__chip:hover .marcas__logo-img.volvo-logo {
+  transform: scale(1.6);
+}
+
 .marcas__logo-img.international-logo {
-    transform: scale(1.25); /* Aumenta el tamaño un 25% */
+  transform: scale(1.25);
+}
+.marcas__chip:hover .marcas__logo-img.international-logo {
+  transform: scale(1.6);
+}
+
+/* Hover genérico para logos sin escala base personalizada */
+.marcas__chip:hover .marcas__logo-img:not(.freightliner-logo):not(.volvo-logo):not(.international-logo) {
+  transform: scale(1.3);
 }
