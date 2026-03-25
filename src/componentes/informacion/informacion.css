@@ -1,6 +1,9 @@
 /* ===== MARCAS ===== */
+.marcas .section-title {
+  color: #90e0ef;
+}
 .marcas {
-  background: #000000;
+  background: linear-gradient(135deg, #012a4a 0%, #013a63 100%);
   padding: 80px 0;
   overflow: hidden;
 }
@@ -22,15 +25,15 @@
 }
 .marcas__chip {
   background: var(--white);
-  border: 1px solid var(--gray-200);
-  color: var(--navy);
+  border: 1px solid #90e0ef;
+  color: #012a4a;
   font-weight: 700;
   font-size: 0.88rem;
   padding: 16px 40px;
   border-radius: 40px;
   white-space: nowrap;
   box-shadow: var(--shadow);
-  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.2s;
   letter-spacing: 0.3px;
   cursor: default;
   display: inline-flex;
@@ -41,8 +44,9 @@
   min-width: 180px;
 }
 .marcas__chip:hover { 
-  border-color: var(--cyan); 
-  color: var(--cyan); 
+  border-color: #013a63;
+  color: #013a63;
+  background: #e0f7ff;
   transform: translateY(-2px);
   z-index: 2;
 }
@@ -55,7 +59,6 @@
   gap: 64px;
   align-items: center;
 }
-
 .about__p {
   color: var(--gray-600);
   margin-bottom: 16px;
@@ -114,7 +117,6 @@ strong { color: var(--navy); }
   background: radial-gradient(circle, rgba(0,170,255,0.1), transparent 70%);
   border-radius: 50%;
 }
-
 .about__logo {
   position: relative;
   z-index: 1;
@@ -143,7 +145,6 @@ strong { color: var(--navy); }
   color: var(--cyan);
   margin-top: 4px;
 }
-
 .about__stats-mini {
   position: relative;
   z-index: 1;
@@ -186,7 +187,7 @@ strong { color: var(--navy); }
 /* ── Sección marcas ── */
 .marcas {
   padding: 60px 0;
-  background: #000000;
+  background: linear-gradient(135deg, #012a4a 0%, #013a63 100%);
 }
 
 /* Barra blanca contenedora */
@@ -207,16 +208,13 @@ strong { color: var(--navy); }
   width: max-content;
   animation: scroll-brands 20s linear infinite;
 }
-
 .marcas__track:has(.marcas__chip:hover) {
   animation-play-state: paused;
 }
-
 @keyframes scroll-brands {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-
 .marcas__chip {
   display: flex;
   align-items: center;
@@ -229,7 +227,6 @@ strong { color: var(--navy); }
   outline: none !important;
   padding: 0;
 }
-
 .marcas__chip:hover,
 .marcas__chip:focus {
   background: none !important;
@@ -237,7 +234,6 @@ strong { color: var(--navy); }
   box-shadow: none !important;
   outline: none !important;
 }
-
 .marcas__logo-img {
   height: 90px;
   width: auto;
@@ -248,32 +244,27 @@ strong { color: var(--navy); }
   border: none !important;
   outline: none !important;
 }
-
 .marcas__chip:hover .marcas__logo-img {
   filter: grayscale(0%) drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.2));
 }
-
 .marcas__logo-img.freightliner-logo {
   transform: scale(1.7);
 }
 .marcas__chip:hover .marcas__logo-img.freightliner-logo {
   transform: scale(2.2);
 }
-
 .marcas__logo-img.volvo-logo {
   transform: scale(1.25);
 }
 .marcas__chip:hover .marcas__logo-img.volvo-logo {
   transform: scale(1.6);
 }
-
 .marcas__logo-img.international-logo {
   transform: scale(1.25);
 }
 .marcas__chip:hover .marcas__logo-img.international-logo {
   transform: scale(1.6);
 }
-
 .marcas__chip:hover .marcas__logo-img:not(.freightliner-logo):not(.volvo-logo):not(.international-logo) {
   transform: scale(1.3);
 }
