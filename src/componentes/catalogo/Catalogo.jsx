@@ -3,29 +3,48 @@ import './catalogo.css';
 import { FiGrid, FiTruck, FiCornerDownRight, FiGitPullRequest } from 'react-icons/fi';
 import Buscador from '../buscador/buscador';
 import MercedesBenzLogo from '../../img/MercedesBenz.png';
-
+import camisasImg from '../../img/Catalogo/camisas.webp';
+import canillerasImg from '../../img/Catalogo/canilleras.webp'
+import escapeImg from '../../img/Catalogo/escape.webp';
+import culataImg from '../../img/Catalogo/culata.webp';
+import anillosImg from '../../img/Catalogo/anillos.webp'
+import ciguelaImg from '../../img/Catalogo/ciguenal.webp'
+import volanteImg from '../../img/Catalogo/volante.webp'
+import bielaImg from '../../img/Catalogo/biela.webp'
+import arbolImg from '../../img/Catalogo/arbol.webp'
+import bombaImg from '../../img/Catalogo/bomba.webp'
+import campanaImg from '../../img/Catalogo/campana.webp' 
+import carterImg from '../../img/Catalogo/carter.webp' 
+import setEmpaquesImg from '../../img/Catalogo/setEmpaques.webp' 
+import kitEmpaquesImg from '../../img/Catalogo/kitEmpaques.webp' 
+import volanteDetroitImg from '../../img/Catalogo/volanteDetroit.webp' 
+import inyectorImg from '../../img/Catalogo/inyector.webp' 
+import sensorImg from '../../img/Catalogo/sensor.webp' 
+import turboImg from '../../img/Catalogo/turbo.webp' 
+import bombaDetroitImg from '../../img/Catalogo/bombaDetroit.webp' 
+import radiadorImg  from '../../img/Catalogo/radiador.webp' 
 
 const vehiculos = [
-    { id: 1, nombre: 'Kit de Motor Mercedes-Benz OM 460', tipo: 'Motor', marca: 'Mercedes Benz', hp: '450 HP', imagen: 'img/MercedesBenz.png' },
-    { id: 2, nombre: 'Cabina Extendida Freightliner Cascadia', tipo: 'Cabina', marca: 'Freightliner', hp: 'N/A', imagen: 'ruta/cabina-cascadia.jpg' },
-    { id: 3, nombre: 'Vigas de Chasis Reforzado Atego', tipo: 'Chasis', marca: 'Mercedes Benz', hp: 'N/A', imagen: 'ruta/chasis-atego.jpg' },
-    { id: 4, nombre: 'Paquete de Ballestas Traseras Heavy ', tipo: 'Suspensión', marca: 'International', hp: 'N/A', imagen: 'ruta/suspension-volquete.jpg'},
-    { id: 5, nombre: 'Transmisión Eaton Fuller 18 ', tipo: 'Transmisión', marca: 'Kenworth', hp: 'N/A', imagen: 'ruta/transmision-m2.jpg' },
-    { id: 6, nombre: 'Turboalimentador Holset Accelo 1016', tipo: 'Motor', marca: 'Mercedes Benz', hp: '156 HP', imagen: 'ruta/motor-accelo.jpg' },
-    { id: 7, nombre: 'Soporte de Cabina Neumático Axor', tipo: 'Cabina', marca: 'Mercedes Benz', hp: 'N/A', imagen: 'ruta/cabina-axor.jpg' },
-    { id: 8, nombre: 'Travesaños de Chasis 114SD', tipo: 'Chasis', marca: 'Freightliner', hp: 'N/A', imagen: 'ruta/chasis-114sd.jpg' },
-    { id: 9, nombre: 'Amortiguadores Delanteros FH16', tipo: 'Suspensión', marca: 'Volvo', hp: 'N/A', imagen: 'ruta/suspension-actros.jpg' },
-    { id: 10, nombre: 'Caja de Cambios mDrive 12 vel.', tipo: 'Transmisión', marca: 'Mack', hp: 'N/A', imagen: 'ruta/transmision-atego.jpg' },
-    { id: 11, nombre: 'Culata de Cilindros Actros 2653 LS', tipo: 'Motor', marca: 'Mercedes Benz', hp: '530 HP', imagen: 'ruta/motor-actros-2653.jpg' },
-    { id: 12, nombre: 'Puerta Derecha Completa M2 Business', tipo: 'Cabina', marca: 'Freightliner', hp: 'N/A', imagen: 'ruta/cabina-m2.jpg' },
-    { id: 13, nombre: 'Quinta Rueda Jost para Chasis Arocs', tipo: 'Chasis', marca: 'Mercedes Benz', hp: 'N/A', imagen: 'ruta/chasis-arocs.jpg' },
-    { id: 14, nombre: 'Bolsas de Aire de Suspensión WorkStar', tipo: 'Suspensión', marca: 'International', hp: 'N/A', imagen: 'ruta/suspension-atego-2430.jpg'},
-    { id: 15, nombre: 'Kit de Embrague Reforzado Cascadia', tipo: 'Transmisión', marca: 'Freightliner', hp: 'N/A', imagen: 'ruta/transmision-cascadia.jpg' },
-    { id: 16, nombre: 'Bomba de Inyección Diésel T880', tipo: 'Motor', marca: 'Kenworth', hp: '160 HP', imagen: 'ruta/motor-accelo-1316.jpg' },
-    { id: 17, nombre: 'Asiento de Conductor con Suspensión ', tipo: 'Cabina', marca: 'Mack', hp: 'N/A', imagen: 'ruta/cabina-axor-2644.jpg' },
-    { id: 18, nombre: 'Eje Delantero Rígido Volvo VNR', tipo: 'Chasis', marca: 'Volvo', hp: 'N/A', imagen: 'ruta/chasis-arocs-4851.jpg' },
-    { id: 19, nombre: 'Barra Estabilizadora M2 Mixer', tipo: 'Suspensión', marca: 'Freightliner', hp: 'N/A', imagen: 'ruta/suspension-mixer.jpg' },
-    { id: 20, nombre: 'Diferencial Trasero de Alta Tracción', tipo: 'Transmisión', marca: 'International', hp: 'N/A', imagen: 'ruta/transmision-atego-1419.jpg' }
+    { id: 1, nombre: 'CAMISAS DE MOTOR Y ANILLOS ORIGINAL MERCEDES BENZ  x6 unidad', tipo: 'Motor MERCEDES BENZ', marca: 'Mercedes Benz', hp: 'N/A', imagen: camisasImg },
+    { id: 2, nombre: 'Canilleras JGO METAL BCDA.STD OM457 MARCA MAHLE', tipo: 'Motor MERCEDES BENZ', marca: 'MAHLE', hp: 'N/A', imagen: canillerasImg },
+    { id: 3, nombre: 'EMPAQUE DE ESCAPE MARCA ELRI', tipo: 'Motor MERCEDES BENZ', marca: 'ELRI', hp: 'N/A', imagen: escapeImg },
+    { id: 4, nombre: 'EMPAQUE DE CULATA MARCA ELRI ', tipo: 'Motor MERCEDES BENZ', marca: 'ELRI', hp: 'N/A', imagen: culataImg},
+    { id: 5, nombre: 'ANILLOS DE MOTOR MARCA KSP ', tipo: 'Motor MERCEDES BENZ', marca: 'KSP', hp: 'N/A', imagen: anillosImg },
+    { id: 6, nombre: 'CIGUENAL ORIGINAL', tipo: 'Motor MERCEDES BENZ', marca: 'Mercedes Benz', hp: '156 HP', imagen: ciguelaImg },
+    { id: 7, nombre: 'VOLANTE DE INERCIA  CON CORONA DE ARRANQUE', tipo: 'Motor MERCEDES BENZ', marca: 'Mercedes Benz', hp: 'N/A', imagen: volanteImg },
+    { id: 8, nombre: 'BIELA', tipo: 'Motor MERCEDES BENZ', marca: 'Mercedes Benz', hp: 'N/A', imagen: bielaImg },
+    { id: 9, nombre: 'ARBOL DE EJE DE LEVAS', tipo: 'Motor MERCEDES BENZ', marca: 'Volvo', hp: 'N/A', imagen: arbolImg },
+    { id: 10, nombre: 'BOMBA DE COMBUSTIBLE', tipo: 'Motor MERCEDES BENZ', marca: 'Mack', hp: 'N/A', imagen: bombaImg },
+    { id: 11, nombre: 'CAMPANA DE DISTRIBUCION ORIGINAL', tipo: 'Motor MERCEDES BENZ', marca: 'Mercedes Benz', hp: '530 HP', imagen: campanaImg },
+    { id: 12, nombre: 'CARTER COMPLETO DE MOTOR ORIGINAL', tipo: 'Motor MERCEDES BENZ', marca: 'Freightliner', hp: 'N/A', imagen: carterImg },
+    { id: 13, nombre: 'SET DE EMPAQUES DE MOTOR DETROIT', tipo: 'MOTOR DETROIT SERIE 60 DD13', marca: 'Mercedes Benz', hp: 'N/A', imagen: setEmpaquesImg },
+    { id: 14, nombre: 'KIT EMPAQUE CULATA S-60  DETROIT', tipo: 'MOTOR DETROIT SERIE 60 DD13', marca: 'International', hp: 'N/A', imagen: kitEmpaquesImg },
+    { id: 15, nombre: 'VOLANTE MOTOR S50-60  DETROIT', tipo: 'MOTOR DETROIT SERIE 60 DD13', marca: 'Freightliner', hp: 'N/A', imagen: volanteDetroitImg },
+    { id: 16, nombre: 'INYECTOR COMPLETO S60 12L DETROIT', tipo: 'MOTOR DETROIT SERIE 60 DD13', marca: 'Kenworth', hp: '160 HP', imagen: inyectorImg },
+    { id: 17, nombre: 'SENSOR PRESION DE ACEITE  DETROIT ', tipo: 'MOTOR DETROIT SERIE 60 DD13', marca: 'Mack', hp: 'N/A', imagen: sensorImg },
+    { id: 18, nombre: 'TURBO S60 D4 DETROIT', tipo: 'MOTOR DETROIT SERIE 60 DD13', marca: 'Volvo', hp: 'N/A', imagen: turboImg },
+    { id: 19, nombre: 'BOMBA DE ACEITE  ORIGINAL  DETROIT', tipo: 'MOTOR DETROIT SERIE 60 DD13', marca: 'Freightliner', hp: 'N/A', imagen: bombaDetroitImg },
+    { id: 20, nombre: 'BHT B4761 RADIADOR DE AGUA PARA M2 112 / CL 112 / CL 120', tipo: 'MOTOR DETROIT SERIE 60 DD13', marca: 'International', hp: 'N/A', imagen: radiadorImg },
 
     // Agrega más vehículos aquí
 ];
@@ -81,7 +100,7 @@ export default function Catalogo() {
                             {vehiculosFiltrados.map(v => (
                                 <div key={v.id} className="vehicle-card">
                                     <div className="vehicle-img">
-                                        <img src={MercedesBenzLogo} alt={v.nombre} />
+                                        <img src={v.imagen || MercedesBenzLogo} alt={v.nombre} />
                                     </div>
                                     <div className="vehicle-info">
                                         <span className="vehicle-tag">{v.tipo}</span>
