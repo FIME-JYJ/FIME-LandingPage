@@ -53,7 +53,7 @@ export default function Navbar() {
             <FiPhone className="topbar__icon" /> +51 983 507 611
           </span>
           <span className="topbar__item">
-            <FiMail className="topbar__icon" /> jjulian@fime-repuestos.com
+            <FiMail className="topbar__icon" /> ventas@fime-repuestos.com
 
           </span>
           <span className="topbar__item">

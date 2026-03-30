@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
           <div className="footer__contact-item">
             <FiMail className="footer__contact-icon" />
-            <span>jjulian@fime-repuestos.com</span>
+            <span>ventas@fime-repuestos.com</span>
           </div>
           <div className="footer__contact-item">
             <FiClock className="footer__contact-icon" />
