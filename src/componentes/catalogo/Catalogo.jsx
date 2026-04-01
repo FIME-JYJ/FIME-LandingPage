@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './catalogo.css';
 import { FiGrid, FiTruck, FiCornerDownRight, FiGitPullRequest } from 'react-icons/fi';
 import Buscador from '../buscador/buscador';
@@ -57,6 +58,7 @@ const categorias = [
     { id: 'Mezclador', label: 'Mezcladores', icon: <FiGitPullRequest /> },
 ];
 export default function Catalogo() {
+    const navigate = useNavigate();
     // Estado para los filtros del buscador
     const [filtros, setFiltros] = useState({ brand: '', category: '', term: '', model: '' });
 
@@ -108,7 +110,20 @@ export default function Catalogo() {
                                         <h3>{v.nombre}</h3>
                                         <p className="vehicle-specs">Marca: {v.marca}</p>
                                         <p className="vehicle-specs">Modelo: {v.modelo}</p>
-                                        <button className="vehicle-btn">Ver Detalle</button>
+
+                                        <button
+                                            className="vehicle-btn"
+                                            onClick={() => {
+                                                // Si es la primera pieza (id 1), mandamos al detalle
+                                                if (v.id === 1) {
+                                                    navigate(`/catalogo/${v.id}`);
+                                                } else {
+                                                    alert("Próximamente disponible");
+                                                }
+                                            }}
+                                        >
+                                            Ver Detalle
+                                        </button>
                                     </div>
                                 </div>
                             ))}

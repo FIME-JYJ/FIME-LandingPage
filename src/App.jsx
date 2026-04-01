@@ -10,6 +10,8 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Catalogo from './componentes/catalogo/Catalogo';
 import WhatsAppButton from './componentes/whatsapp/whatsapp';
+import DetallePieza from './paginas/DetallePieza/DetallePieza';
+
 
 // Aquí definimos la "Página Nueva" del Catálogo
 function PaginaCatalogo() {
@@ -69,6 +71,7 @@ export default function App() {
 
                 {/* RUTA 2: La página nueva del catálogo */}
                 <Route path="/catalogo" element={<Catalogo />} />
+                <Route path="/catalogo/:id" element={<DetallePieza />} />
             </Routes>
             <ScrollToTop />
         </>
