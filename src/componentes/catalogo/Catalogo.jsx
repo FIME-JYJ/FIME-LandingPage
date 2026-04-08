@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './catalogo.css';
-import { FiGrid, FiTruck, FiCornerDownRight, FiGitPullRequest } from 'react-icons/fi';
 import Buscador from '../buscador/buscador';
+import BannerCat from '../bannerCat/bannerCat';
 import MercedesBenzLogo from '../../img/MercedesBenz.png';
 import camisasImg from '../../img/Catalogo/camisas.webp';
 import canillerasImg from '../../img/Catalogo/canilleras.webp'
@@ -50,13 +50,6 @@ const vehiculos = [
     // Agrega más vehículos aquí
 ];
 
-const categorias = [
-    { id: 'todos', label: 'Todos', icon: <FiGrid /> },
-    { id: 'Remolcador', label: 'Remolcadores', icon: <FiTruck /> },
-    { id: 'Camion', label: 'Camiones', icon: <FiCornerDownRight /> },
-    { id: 'Volquete', label: 'Volquetes', icon: <FiTruck /> }, // Puedes cambiar el icono
-    { id: 'Mezclador', label: 'Mezcladores', icon: <FiGitPullRequest /> },
-];
 export default function Catalogo() {
     const navigate = useNavigate();
     // Estado para los filtros del buscador
@@ -79,16 +72,7 @@ export default function Catalogo() {
 
     return (
         <div className="catalogo-page">
-            <div className="catalogo-hero">
-                <div className="catalogo-hero__overlay">
-                    <div className="container">
-                        <h1 className="catalogo-hero__title">Catálogo de Repuestos</h1>
-                        <p className="catalogo-hero__subtitle">
-                            Encuentra la potencia y confiabilidad que tu negocio necesita
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <BannerCat />
 
             {/* Pasamos la función handleSearch al Buscador */}
             <Buscador onSearch={handleSearch} />

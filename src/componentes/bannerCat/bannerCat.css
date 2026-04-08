@@ -1,0 +1,123 @@
+/* Contenedor Principal del Banner */
+.banner-cat-container {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* Altura del banner, ajústala a tu gusto (ej: 60vh, 400px) */
+    overflow: hidden;
+    color: white;
+    font-family: sans-serif; /* O la fuente de tu proyecto */
+}
+
+/* Estilos para cada Slide (Imagen) */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* Oculto por defecto */
+    transition: opacity 1s ease-in-out; /* Transición suave de fading */
+    z-index: 1;
+}
+
+.slide.active {
+    opacity: 1; /* Visible cuando está activo */
+    z-index: 2;
+}
+
+/* Overlay oscuro para legibilidad del texto */
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 47, 110, 0.7); /* Azul oscuro con transparencia de FIME */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenido del Texto */
+.content {
+    text-align: center;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.separator {
+    width: 3px;
+    height: 40px;
+    background-color: #00aaff; /* Azul claro acento de FIME */
+    margin: 0 auto;
+}
+
+.content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Contenedor de Indicadores Circulares */
+.carousel-indicators {
+    position: absolute;
+    bottom: 30px;
+    right: 50px; /* Esquina derecha como pediste */
+    display: flex;
+    gap: 20px;
+    z-index: 10; /* Por encima de los slides */
+}
+
+/* Botón del Indicador (El círculo completo) */
+.indicator-circle {
+    position: relative;
+    width: 60px; /* Tamaño del círculo */
+    height: 60px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.5); /* Color de número inactivo */
+    transition: color 0.3s ease;
+}
+
+.indicator-circle.active {
+    color: white; /* Color de número activo */
+}
+
+/* El número dentro */
+.circle-number {
+    position: absolute;
+    font-size: 1.2rem;
+    font-weight: bold;
+    z-index: 12;
+}
+
+/* El gráfico SVG Circular exacto */
+.circular-chart {
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+}
+
+.circle-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.2); /* Color del anillo de fondo (inactivo) */
+    stroke-width: 2.5; /* Grosor */
+}
+
+.circle {
+    fill: none;
+    stroke: #00aaff; /* Color del anillo de progreso activo */
+    stroke-width: 2.5; /* Grosor */
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.3s ease; /* Transición del progreso */
+}
