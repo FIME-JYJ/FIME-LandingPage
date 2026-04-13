@@ -1,6 +1,12 @@
 import { FiSettings, FiBox, FiTruck, FiArrowRight } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import './destacados.css';
+import camisasImg from '../../img/Catalogo/camisas.webp';
+import anillosImg from '../../img/Catalogo/anillos.webp';
+import turboImg from '../../img/Catalogo/turbo.webp';
+import volanteImg from '../../img/Catalogo/volante.webp';
+import bombaImg from '../../img/Catalogo/bomba.webp';
+import radiadorImg from '../../img/Catalogo/radiador.webp';
 
 const categories = [
   {
@@ -24,12 +30,12 @@ const categories = [
 ];
 
 const products = [
-  { id: 1, name: 'Kit de Empaque Cummins ISX', price: '$320.000', category: 'Motor',    tag: 'Nuevo',   icon: FiSettings },
-  { id: 2, name: 'Asiento Conductor Kenworth', price: '$185.000', category: 'Cabina', tag: 'Popular', icon: FiBox },
-  { id: 3, name: 'Amortiguador Delantero', price: '$95.000',  category: 'Chasis',     tag: 'Oferta',  icon: FiTruck },
-  { id: 4, name: 'Turbo Cummins ISM', price: '$650.000',  category: 'Motor', tag: 'Nuevo',   icon: FiSettings },
-  { id: 5, name: 'Tablero Internacional', price: '$450.000', category: 'Cabina',        tag: 'Popular', icon: FiBox },
-  { id: 6, name: 'Sistema de Frenos Bendix', price: '$278.000',  category: 'Chasis', tag: null,      icon: FiTruck },
+  { id: 1, name: 'Turbo Cummins ISX Holset', price: '$320.000', category: 'Motor', tag: 'Nuevo', image: camisasImg },
+  { id: 2, name: 'Kit de Embrague Eaton Fuller (15.5")', price: '$185.000', category: 'Transmicion', tag: 'Popular', image: volanteImg },
+  { id: 3, name: 'Bolsa de Aire de Cabina / Chasis', price: '$95.000',  category: 'Suspension', tag: 'Oferta',  image: bombaImg },
+  { id: 4, name: 'Faros LED de Alta Definición', price: '$650.000',  category: 'Motor', tag: 'Nuevo',   image: turboImg },
+  { id: 5, name: 'Válvula Secadora de Aire (Bendix AD-IS)', price: '$450.000', category: 'Frenos', tag: 'Popular', image: radiadorImg },
+  { id: 6, name: 'Asiento con Suspensión Neumática (Premium)', price: '$278.000',  category: 'Cabina', tag: null, image: anillosImg },
 ];
 
 const tagColors = {
@@ -83,7 +89,7 @@ export default function Destacados() {
           </div>
 
           <div className="productos__grid">
-            {products.map(({ id, name, price, category, tag, icon: Icon }) => (
+            {products.map(({ id, name, price, category, tag, image }) => (
               <div key={id} className="prodcard">
                 {tag && (
                   <span
@@ -94,14 +100,19 @@ export default function Destacados() {
                   </span>
                 )}
                 <div className="prodcard__img">
-                  <Icon className="prodcard__img-icon" />
+                  <img src={image} alt={name} />
                 </div>
                 <div className="prodcard__body">
                   <span className="prodcard__cat">{category}</span>
                   <h4 className="prodcard__name">{name}</h4>
                   <div className="prodcard__footer">
                     <span className="prodcard__price">{price}</span>
-
+                    <button
+                      className="prodcard__btn"
+                      onClick={() => navigate(`/catalogo/${id}`)}
+                    >
+                      Solicitar Cotización
+                    </button>
                   </div>
                 </div>
               </div>

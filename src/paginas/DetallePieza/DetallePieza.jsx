@@ -1,24 +1,32 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { FiArrowLeft, FiCheckCircle, FiSettings, FiTruck } from 'react-icons/fi';
+import { useNavigate, useParams } from 'react-router-dom';
+import { FiArrowLeft } from 'react-icons/fi';
 import './DetallePieza.css';
 
-// Importa la imagen de la primera pieza
-import camisasImg from '../../img/Catalogo/camisas.webp';
+import vehiculos from '../../vehiculos';
 
 export default function DetallePieza() {
     const navigate = useNavigate();
+    const { id } = useParams();
 
-    // Datos de prueba para la primera pieza
-    const pieza = {
-        nombre: 'CAMISAS DE MOTOR Y ANILLOS ORIGINAL x6 unidad',
-        categoria: 'Motor',
-        marca: 'Mercedes Benz',
-        modelo: 'Actros',
-        tipo: 'Original',
-        imagen: camisasImg,
-        descripcion: 'Este kit original de 6 camisas y anillos está diseñado para motores de 6 cilindros, asegurando un sellado de combustión óptimo, reduciendo la fricción y disipando el calor.'
-    };
+    // Buscar la pieza por id en el array centralizado
+    const pieza = vehiculos.find(p => String(p.id) === String(id));
+
+    if (!pieza) {
+        return (
+            <div className="detalle-page">
+                <div className="container">
+                    <button className="back-btn" onClick={() => navigate(-1)}>
+                        <FiArrowLeft /> Volver al catálogo
+                    </button>
+                    <div style={{ padding: 40, textAlign: 'center' }}>
+                        <h2>Producto no encontrado</h2>
+                        <p>Lo sentimos, no encontramos la pieza solicitada.</p>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="detalle-page">
@@ -38,7 +46,7 @@ export default function DetallePieza() {
                         <p className="detalle-descripcion">{pieza.descripcion}</p>
 
                         <div className="action-area">
-                            <p className="price-tag">Precio: Consultar</p>
+                            <p className="price-tag">Precio: {pieza.precio ? `$${pieza.precio.toLocaleString()}` : 'Consultar'}</p>
                             <button className="btn-cotizar">Solicitar Cotización</button>
                         </div>
                     </div>
