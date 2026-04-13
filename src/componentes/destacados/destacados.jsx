@@ -30,12 +30,12 @@ const categories = [
 ];
 
 const products = [
-  { id: 1, name: 'Turbo Cummins ISX Holset', price: '$320.000', category: 'Motor', tag: 'Nuevo', image: camisasImg },
-  { id: 2, name: 'Kit de Embrague Eaton Fuller (15.5")', price: '$185.000', category: 'Transmicion', tag: 'Popular', image: volanteImg },
-  { id: 3, name: 'Bolsa de Aire de Cabina / Chasis', price: '$95.000',  category: 'Suspension', tag: 'Oferta',  image: bombaImg },
-  { id: 4, name: 'Faros LED de Alta Definición', price: '$650.000',  category: 'Motor', tag: 'Nuevo',   image: turboImg },
-  { id: 5, name: 'Válvula Secadora de Aire (Bendix AD-IS)', price: '$450.000', category: 'Frenos', tag: 'Popular', image: radiadorImg },
-  { id: 6, name: 'Asiento con Suspensión Neumática (Premium)', price: '$278.000',  category: 'Cabina', tag: null, image: anillosImg },
+  { id: 21, name: 'Turbo Cummins ISX Holset', category: 'Motor', tag: 'Nuevo', image: camisasImg },
+  { id: 22, name: 'Kit de Embrague Eaton Fuller (15.5")', category: 'Transmisión', tag: 'Popular', image: volanteImg },
+  { id: 23, name: 'Bolsa de Aire de Cabina / Chasis', category: 'Suspensión', tag: 'Oferta', image: bombaImg },
+  { id: 24, name: 'Faros LED de Alta Definición', category: 'Eléctrico', tag: 'Nuevo', image: turboImg },
+  { id: 25, name: 'Válvula Secadora de Aire (Bendix AD-IS)', category: 'Frenos', tag: 'Popular', image: radiadorImg },
+  { id: 26, name: 'Asiento con Suspensión Neumática (Premium)', category: 'Cabina', tag: null, image: anillosImg },
 ];
 
 const tagColors = {
@@ -59,7 +59,7 @@ export default function Destacados() {
           </div>
 
           <div className="categorias__grid">
-            {categories.map(({ name, icon: Icon, subcats, image }) => (
+            {categories.map(({ name, image }) => (
               <div
                 key={name}
                 className="catcard"
@@ -89,7 +89,7 @@ export default function Destacados() {
           </div>
 
           <div className="productos__grid">
-            {products.map(({ id, name, price, category, tag, image }) => (
+            {products.map(({ id, name, category, tag, image }) => (
               <div key={id} className="prodcard">
                 {tag && (
                   <span
@@ -106,12 +106,12 @@ export default function Destacados() {
                   <span className="prodcard__cat">{category}</span>
                   <h4 className="prodcard__name">{name}</h4>
                   <div className="prodcard__footer">
-                    <span className="prodcard__price">{price}</span>
+                    {/* Precio oculto en la tarjeta: se muestra en detalle */}
                     <button
                       className="prodcard__btn"
                       onClick={() => navigate(`/catalogo/${id}`)}
                     >
-                      Solicitar Cotización
+                      Ver Detalle
                     </button>
                   </div>
                 </div>
@@ -120,9 +120,17 @@ export default function Destacados() {
           </div>
 
           <div className="center">
-            <a href="#productos" className="btn-outline">
+            <button
+              type="button"
+              className="btn-outline"
+              onClick={() => {
+                const el = document.getElementById('productos');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                else window.location.hash = 'productos';
+              }}
+            >
               Ver Todos los Productos <FiArrowRight />
-            </a>
+            </button>
           </div>
         </div>
       </section>

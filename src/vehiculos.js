@@ -41,6 +41,14 @@ const vehiculos = [
     { id: 18, nombre: 'TURBO S60 D4', categoria: 'Motor', marca: 'Detroit', modelo: 'S60', tipo: 'Alternativo', imagen: turboImg, precio: 420000, descripcion: 'Turbo de alto flujo para S60 D4.' },
     { id: 19, nombre: 'BOMBA DE ACEITE  ORIGINAL', categoria: 'Motor', marca: 'Detroit', modelo: 'DD15', tipo: 'Alternativo', imagen: bombaDetroitImg, precio: 76000, descripcion: 'Bomba de aceite original Detroit.' },
     { id: 20, nombre: 'BHT B4761 RADIADOR DE AGUA', categoria: 'Motor', marca: 'Detroit', modelo: 'M2', tipo: 'Alternativo', imagen: radiadorImg, precio: 195000, descripcion: 'Radiador de agua BHT B4761.' },
+
+    // Productos añadidos desde la sección 'Destacados' — ahora forman parte del catálogo global
+    { id: 21, nombre: 'Turbo Cummins ISX Holset', categoria: 'Motor', marca: 'Cummins', modelo: 'ISX', tipo: 'Original', imagen: camisasImg, precio: 320000, descripcion: 'Turbo Holset para motores Cummins ISX — mejora la respuesta y eficiencia del motor, diseñado para altas prestaciones.' , tag: 'Nuevo' },
+    { id: 22, nombre: 'Kit de Embrague Eaton Fuller (15.5")', categoria: 'Transmisión', marca: 'Eaton', modelo: 'Fuller', tipo: 'Original', imagen: volanteImg, precio: 185000, descripcion: 'Kit de embrague Eaton Fuller compatible con cajas de 15.5"; incluye disco, prensa y rulemán.' , tag: 'Popular' },
+    { id: 23, nombre: 'Bolsa de Aire de Cabina / Chasis', categoria: 'Suspensión', marca: 'AirTech', modelo: 'Universal', tipo: 'Alternativo', imagen: bombaImg, precio: 95000, descripcion: 'Bolsa de aire de alta resistencia para suspensión de cabina y chasis, ayuda a mejorar el confort y la estabilidad.' , tag: 'Oferta' },
+    { id: 24, nombre: 'Faros LED de Alta Definición', categoria: 'Eléctrico', marca: 'Lumina', modelo: 'LED-HD', tipo: 'Alternativo', imagen: turboImg, precio: 650000, descripcion: 'Faros LED de alta definición con mayor alcance y eficiencia energética, ideales para conducción nocturna.' , tag: 'Nuevo' },
+    { id: 25, nombre: 'Válvula Secadora de Aire (Bendix AD-IS)', categoria: 'Frenos', marca: 'Bendix', modelo: 'AD-IS', tipo: 'Original', imagen: radiadorImg, precio: 450000, descripcion: 'Válvula secadora de aire Bendix AD-IS para sistemas de freno por aire, garantiza la eliminación de humedad.' , tag: 'Popular' },
+    { id: 26, nombre: 'Asiento con Suspensión Neumática (Premium)', categoria: 'Cabina', marca: 'ComfortSeat', modelo: 'P-Active', tipo: 'Original', imagen: anillosImg, precio: 278000, descripcion: 'Asiento premium con suspensión neumática y ajustes ergonómicos para largas jornadas de conducción.' }
 ];
 
 export default vehiculos;
