@@ -1,13 +1,14 @@
 import { FiSettings, FiBox, FiTruck, FiArrowRight } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import './destacados.css';
-import camisasImg from '../../img/Catalogo/camisas.webp';
-import anillosImg from '../../img/Catalogo/anillos.webp';
-import turboImg from '../../img/Catalogo/turbo.webp';
-import volanteImg from '../../img/Catalogo/volante.webp';
+import overhaulImg from '../../img/Catalogo/overhaul.webp';
 import bombaImg from '../../img/Catalogo/bomba.webp';
-import radiadorImg from '../../img/Catalogo/radiador.webp';
+import turbocomImg from '../../img/Catalogo/turbocom.webp';
 
+import EspejoRetrovisorImg from '../../img/Catalogo/EspejoRetrovisor.webp';
+import compresorImg from '../../img/Catalogo/compresor.webp';
+
+import turboCumminsImg from '../../img/Catalogo/turboCummins.webp';
 const categories = [
   {
     name: 'Motor',
@@ -30,12 +31,12 @@ const categories = [
 ];
 
 const products = [
-  { id: 21, name: 'Turbo Cummins ISX Holset', category: 'Motor', tag: 'Nuevo', image: camisasImg },
-  { id: 22, name: 'Kit de Embrague Eaton Fuller (15.5")', category: 'Transmisión', tag: 'Popular', image: volanteImg },
-  { id: 23, name: 'Bolsa de Aire de Cabina / Chasis', category: 'Suspensión', tag: 'Oferta', image: bombaImg },
-  { id: 24, name: 'Faros LED de Alta Definición', category: 'Eléctrico', tag: 'Nuevo', image: turboImg },
-  { id: 25, name: 'Válvula Secadora de Aire (Bendix AD-IS)', category: 'Frenos', tag: 'Popular', image: radiadorImg },
-  { id: 26, name: 'Asiento con Suspensión Neumática (Premium)', category: 'Cabina', tag: null, image: anillosImg },
+    { id: 21, name: 'Overhaul de Cummins ISX para Camión International', category: 'Motor', tag: 'Nuevo', image: overhaulImg },
+    { id: 22, name: 'Bomba de Agua para Motor Mercedes Benz M2 112', category: 'Motor', tag: 'Popular', image: bombaImg },
+    { id: 23, name: 'Turbo Compresor para M2 112', category: 'Motor', tag: 'Oferta', image: turbocomImg },
+    { id: 24, name: 'Espejo Completo Retrovisor para M2 112', category: 'Carrocería', tag: 'Nuevo', image: EspejoRetrovisorImg },
+    { id: 25, name: 'Compresor de Aire Acondicionado para M2 112', category: 'Climatización', tag: 'Popular', image: compresorImg },
+    { id: 26, name: 'Turbo Compresor Cummins Original Holset ', category: 'Motor', tag: 'Original', image: turboCumminsImg },
 ];
 
 const tagColors = {
@@ -89,7 +90,7 @@ export default function Destacados() {
           </div>
 
           <div className="productos__grid">
-            {products.map(({ id, name, category, tag, image }) => (
+           {products.map(({ id, name, category, tag, image }) => (
               <div key={id} className="prodcard">
                 {tag && (
                   <span
