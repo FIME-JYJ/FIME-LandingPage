@@ -1,51 +1,45 @@
 /* ===== SECCIÓN DE CATEGORÍAS ===== */
-/* Tarjetas de categorías principales con imágenes de fondo */
-.categorias { background: var(--gray-100); }  /* Fondo gris claro */
+.categorias { background: var(--gray-100); }
 
-/* Cuadrícula de 3 columnas para las categorías */
 .categorias__grid {
-  display: grid;                          /* Layout de cuadrícula */
-  grid-template-columns: repeat(3, 1fr);   /* 3 columnas iguales */
-  gap: 20px;                             /* Espacio entre tarjetas */
-  max-width: 1000px;                     /* Ancho máximo */
-  margin: 0 auto;                        /* Centrado horizontal */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-/* Tarjeta individual de categoría */
 .catcard {
-  position: relative;                     /* Para posicionar overlay */
-  height: 400px;                         /* Altura fija */
-  border-radius: var(--radius);          /* Bordes redondeados */
-  overflow: hidden;                      /* Oculta contenido que se desborde */
-  cursor: pointer;                       /* Cursor de mano */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Transiciones suaves */
-  background-size: cover;                /* Imagen cubre todo el contenedor */
-  background-position: center;           /* Imagen centrada */
-  background-repeat: no-repeat;          /* Sin repetición de imagen */
+  position: relative;
+  height: 400px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* Efecto hover en las tarjetas de categoría */
 .catcard:hover {
-  transform: translateY(-5px);           /* Elevación sutil */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);  /* Sombra pronunciada */
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Overlay oscuro sobre la imagen para mejorar legibilidad */
 .catcard__overlay {
-  position: absolute;                     /* Posicionamiento absoluto */
-  top: 0; left: 0; right: 0; bottom: 0;   /* Cubre toda la tarjeta */
-  background: linear-gradient(            /* Gradiente diagonal */
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.1) 0%,               /* Transparente en la esquina superior */
-    rgba(0, 0, 0, 0.3) 100%              /* Más oscuro en la esquina inferior */
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.3) 100%
   );
-  display: flex;                          /* Layout flexbox */
-  align-items: flex-end;                  /* Contenido en la parte inferior */
-  padding: 30px;                         /* Espaciado interno */
-  transition: background 0.3s ease;      /* Transición suave del fondo */
+  display: flex;
+  align-items: flex-end;
+  padding: 30px;
+  transition: background 0.3s ease;
 }
 
-/* Overlay más oscuro en hover */
 .catcard:hover .catcard__overlay {
   background: linear-gradient(
     135deg,
@@ -54,56 +48,50 @@
   );
 }
 
-/* Contenido de la tarjeta (nombre y botón) */
 .catcard__content {
-  display: flex;                          /* Layout horizontal */
-  align-items: center;                    /* Centrado vertical */
-  justify-content: space-between;         /* Espacio entre elementos */
-  width: 100%;                           /* Ancho completo */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
-/* Nombre de la categoría */
 .catcard__name {
-  font-family: var(--font-condensed), sans-serif;     /* Fuente condensada */
-  font-size: 1.8rem;                     /* Tamaño grande */
-  font-weight: 700;                      /* Peso bold */
-  color: var(--white);                   /* Texto blanco */
-  margin: 0;                             /* Sin margen */
-  text-transform: uppercase;             /* Mayúsculas */
-  letter-spacing: 1px;                   /* Espaciado entre letras */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Sombra para legibilidad */
+  font-family: var(--font-condensed), sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Botón circular con flecha */
 .catcard__arrow-btn {
-  width: 50px; height: 50px;             /* Tamaño fijo circular */
-  background: rgba(255, 255, 255, 0.2);  /* Fondo blanco semi-transparente */
-  border-radius: 50%;                    /* Forma circular */
-  display: flex;                         /* Layout flexbox */
-  align-items: center;                   /* Centrado vertical */
-  justify-content: center;               /* Centrado horizontal */
-  transition: all 0.3s ease;             /* Transición suave */
-  backdrop-filter: blur(10px);           /* Efecto de desenfoque */
-  border: 2px solid rgba(255, 255, 255, 0.3);  /* Borde semi-transparente */
+  width: 50px; height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Estado hover del botón */
 .catcard:hover .catcard__arrow-btn {
-  background: var(--cyan);               /* Fondo celeste */
-  border-color: var(--cyan);             /* Borde celeste */
-  transform: scale(1.1);                 /* Aumento de tamaño */
+  background: var(--cyan);
+  border-color: var(--cyan);
+  transform: scale(1.1);
 }
 
-/* Flecha dentro del botón */
 .catcard__arrow {
-  font-size: 1.5rem;                     /* Tamaño del icono */
-  color: var(--white);                   /* Color blanco */
-  transition: transform 0.3s ease;       /* Transición suave */
+  font-size: 1.5rem;
+  color: var(--white);
+  transition: transform 0.3s ease;
 }
 
-/* Movimiento de la flecha en hover */
 .catcard:hover .catcard__arrow {
-  transform: translateX(3px);            /* Desplazamiento hacia la derecha */
+  transform: translateX(3px);
 }
 
 /* ===== PRODUCTOS ===== */
@@ -121,7 +109,7 @@
   overflow: hidden;
   transition: transform 0.28s, box-shadow 0.28s, border-color 0.28s;
   position: relative;
-  background: #fff; /* ensure white background */
+  background: #fff;
   display: flex;
   flex-direction: column;
 }
@@ -210,12 +198,8 @@
   border-color: var(--cyan);
 }
 
-/* Make button full width on small screens */
-@media (max-width: 560px) {
-  .prodcard__btn { width: 100%; }
-}
-
 /* ===== RESPONSIVE ===== */
+
 @media (max-width: 900px) {
   .categorias__grid { 
     grid-template-columns: repeat(2, 1fr);
@@ -223,16 +207,24 @@
   }
   .productos__grid { grid-template-columns: repeat(2, 1fr); }
   
-  .catcard {
-    height: 300px;
+  .catcard { height: 300px; }
+  .catcard__name { font-size: 1.5rem; }
+  .catcard__overlay { padding: 20px; }
+}
+
+@media (max-width: 768px) {
+  /* FIX: Título "Categorias de Productos" en una sola línea */
+  .section-title {
+    font-size: 1.6rem !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  
-  .catcard__name {
-    font-size: 1.5rem;
-  }
-  
-  .catcard__overlay {
-    padding: 20px;
+
+  /* Si el título necesita 2 líneas, que se vea bien centrado */
+  .section-header {
+    text-align: center;
+    padding: 0 12px;
   }
 }
 
@@ -240,21 +232,23 @@
   .categorias__grid,
   .productos__grid { grid-template-columns: 1fr; }
   .categorias__grid { max-width: 400px; }
-  
-  .catcard {
-    height: 220px;
+
+  .catcard { height: 220px; }
+  .catcard__name { font-size: 1.3rem; }
+  .catcard__arrow-btn { width: 40px; height: 40px; }
+  .catcard__arrow { font-size: 1.2rem; }
+  .prodcard__btn { width: 100%; }
+
+  /* FIX: Título más pequeño para que no se corte */
+  .section-title {
+    font-size: 1.4rem !important;
+    white-space: normal;
+    line-height: 1.2;
   }
-  
-  .catcard__name {
-    font-size: 1.3rem;
-  }
-  
-  .catcard__arrow-btn {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .catcard__arrow {
-    font-size: 1.2rem;
+}
+
+@media (max-width: 400px) {
+  .section-title {
+    font-size: 1.2rem !important;
   }
 }

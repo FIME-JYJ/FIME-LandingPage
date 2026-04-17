@@ -121,3 +121,42 @@
     stroke-linecap: round;
     transition: stroke-dasharray 0.3s ease; /* Transición del progreso */
 }
+@media (max-width: 768px) {
+  .content h1 {
+    font-size: 1.8rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+
+  .carousel-indicators {
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 16px;
+    gap: 12px;
+  }
+
+  .indicator-circle {
+    width: 44px;
+    height: 44px;
+  }
+
+  .circle-number {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content h1 {
+    font-size: 1.4rem;
+  }
+
+  .content p {
+    font-size: 0.9rem;
+  }
+
+  .banner-cat-container {
+    height: 50vh;
+  }
+}

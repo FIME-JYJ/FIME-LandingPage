@@ -1,86 +1,122 @@
 /* ===== VARIABLES GLOBALES ===== */
-/* Definición de colores, sombras, bordes y fuentes para todo el sitio */
 :root {
-  /* Colores principales de la marca */
-  --navy: #1a2f6e;           /* Azul principal de la marca */
-  --navy-dark: #0f1e4a;      /* Azul oscuro para fondos y contrastes */
-  --navy-light: #253d8a;     /* Azul claro para variaciones */
-  --cyan: #00aaff;           /* Celeste de acento para botones y enlaces */
-  --cyan-dark: #007acc;      /* Celeste oscuro para hover states */
-  --cyan-light: #33bbff;     /* Celeste claro para efectos sutiles */
+  --navy: #1a2f6e;
+  --navy-dark: #0f1e4a;
+  --navy-light: #253d8a;
+  --cyan: #00aaff;
+  --cyan-dark: #007acc;
+  --cyan-light: #33bbff;
   
-  /* Colores neutros */
-  --white: #ffffff;          /* Blanco puro para fondos y texto */
-  --gray-100: #f5f7fa;       /* Gris muy claro para fondos de sección */
-  --gray-200: #e8edf5;       /* Gris claro para bordes y separadores */
-  --gray-300: #cdd5e0;       /* Gris medio para iconos deshabilitados */
-  --gray-600: #6b7a99;       /* Gris para texto secundario */
-  --gray-800: #2d3a52;       /* Gris oscuro para texto principal */
-  --text: #1a1a2e;           /* Color principal del texto */
+  --white: #ffffff;
+  --gray-100: #f5f7fa;
+  --gray-200: #e8edf5;
+  --gray-300: #cdd5e0;
+  --gray-600: #6b7a99;
+  --gray-800: #2d3a52;
+  --text: #1a1a2e;
   
-  /* Efectos de sombra */
-  --shadow: 0 4px 20px rgba(26, 47, 110, 0.12);      /* Sombra suave para tarjetas */
-  --shadow-lg: 0 8px 40px rgba(26, 47, 110, 0.2);    /* Sombra pronunciada para elementos flotantes */
+  --shadow: 0 4px 20px rgba(26, 47, 110, 0.12);
+  --shadow-lg: 0 8px 40px rgba(26, 47, 110, 0.2);
   
-  /* Bordes redondeados */
-  --radius: 10px;            /* Radio estándar para tarjetas y contenedores */
-  --radius-sm: 6px;          /* Radio pequeño para botones y campos */
+  --radius: 10px;
+  --radius-sm: 6px;
   
-  /* Tipografías */
-  --font-main: 'Barlow', sans-serif;           /* Fuente principal para texto */
-  --font-condensed: 'Barlow Condensed', sans-serif;  /* Fuente condensada para títulos */
+  --font-main: 'Barlow', sans-serif;
+  --font-condensed: 'Barlow Condensed', sans-serif;
 }
 
 /* ===== RESET ===== */
-/* Reseteo de estilos por defecto del navegador para consistencia */
 *, *::before, *::after {
-  box-sizing: border-box;    /* Incluye padding y border en el ancho total */
-  margin: 0;                 /* Elimina márgenes por defecto */
-  padding: 0;                /* Elimina padding por defecto */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-html { scroll-behavior: smooth; }  /* Desplazamiento suave entre secciones */
+html { scroll-behavior: smooth; }
 body {
-  font-family: var(--font-main);    /* Aplica la fuente principal */
-  color: var(--text);               /* Color de texto por defecto */
-  background: var(--white);         /* Fondo blanco por defecto */
-  line-height: 1.6;                /* Espaciado entre líneas legible */
+  font-family: var(--font-main);
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
 }
-a { text-decoration: none; color: inherit; }  /* Enlaces sin subrayado */
-ul { list-style: none; }                      /* Listas sin viñetas */
-img { max-width: 100%; display: block; }      /* Imágenes responsivas */
-button { font-family: var(--font-main); }     /* Botones con fuente consistente */
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+button { font-family: var(--font-main); }
 
 /* ===== UTILIDADES GLOBALES ===== */
-/* Clases reutilizables para layout y tipografía */
 .container {
-  max-width: 1200px;         /* Ancho máximo del contenido */
-  margin: 0 auto;            /* Centrado horizontal */
-  padding: 0 20px;           /* Espaciado lateral */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
-.section { padding: 80px 0; }  /* Espaciado vertical estándar para secciones */
+.section { padding: 80px 0; }
 
-/* Encabezados de sección */
-.section-header { text-align: center; margin-bottom: 48px; }  /* Contenedor centrado para títulos */
+.section-header { text-align: center; margin-bottom: 48px; }
 .section-title {
-  font-family: var(--font-condensed);  /* Fuente condensada para impacto */
-  font-size: 2.2rem;                  /* Tamaño grande para jerarquía */
-  font-weight: 800;                   /* Peso extra bold */
-  color: var(--navy);                 /* Color azul de marca */
-  margin-bottom: 12px;                /* Separación del subtítulo */
-  text-transform: uppercase;          /* Mayúsculas para énfasis */
-  letter-spacing: 1px;                /* Espaciado entre letras */
+  font-family: var(--font-condensed);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
-.section-title--white { color: var(--white); }  /* Variante blanca para fondos oscuros */
+.section-title--white { color: var(--white); }
 
-/* Línea decorativa bajo títulos */
 .section-line {
-  width: 60px;                        /* Ancho fijo de la línea */
-  height: 4px;                        /* Grosor de la línea */
-  background: linear-gradient(90deg, var(--navy), var(--cyan));  /* Gradiente de marca */
-  margin: 0 auto 16px;                /* Centrado con margen inferior */
-  border-radius: 2px;                 /* Bordes ligeramente redondeados */
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--navy), var(--cyan));
+  margin: 0 auto 16px;
+  border-radius: 2px;
 }
-.section-line--white { background: rgba(255, 255, 255, 0.45); }  /* Variante blanca */
+.section-line--white { background: rgba(255, 255, 255, 0.45); }
 
-.section-sub { color: var(--gray-600); font-size: 1rem; }  /* Subtítulo en gris */
-.center { text-align: center; margin-top: 40px; }         /* Centrado con margen superior */
+.section-sub { color: var(--gray-600); font-size: 1rem; }
+.center { text-align: center; margin-top: 40px; }
+
+/* ===== RESPONSIVE GLOBAL ===== */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-header {
+    margin-bottom: 32px;
+    padding: 0 8px;
+  }
+
+  /* FIX: Título en una sola línea ajustando el tamaño */
+  .section-title {
+    font-size: 1.7rem;
+    letter-spacing: 0.5px;
+  }
+
+  .section-sub {
+    font-size: 0.95rem;
+    padding: 0 8px;
+  }
+}
+
+@media (max-width: 560px) {
+  .section {
+    padding: 48px 0;
+  }
+
+  /* FIX: "CATEGORIAS DE PRODUCTOS" en una sola línea */
+  .section-title {
+    font-size: 1.45rem;
+    letter-spacing: 0px;
+  }
+
+  .section-header {
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 400px) {
+  .section-title {
+    font-size: 1.25rem;
+  }
+}

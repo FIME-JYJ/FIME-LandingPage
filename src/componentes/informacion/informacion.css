@@ -288,3 +288,64 @@ strong { color: var(--navy); }         /* Texto en negrita azul */
 .marcas__chip:hover .marcas__logo-img:not(.freightliner-logo):not(.volvo-logo):not(.international-logo) {
   transform: scale(1.3);
 }
+/* FIX: Evitar que los logos escalen fuera del contenedor */
+.marcas__track-wrap {
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.marcas__chip {
+  overflow: hidden;
+}
+
+/* FIX: Reducir escala en móvil para que no se desborden */
+@media (max-width: 768px) {
+  .marcas__logo-img {
+    height: 55px;
+  }
+
+  .marcas__logo-img.freightliner-logo {
+    transform: scale(1.2);
+  }
+
+  .marcas__chip:hover .marcas__logo-img.freightliner-logo {
+    transform: scale(1.4);
+  }
+
+  .marcas__logo-img.volvo-logo,
+  .marcas__logo-img.international-logo {
+    transform: scale(1.0);
+  }
+
+  .marcas__track-wrap {
+    max-width: 95%;
+    padding: 16px 0;
+    margin: 20px auto;
+  }
+
+  .marcas__track {
+    gap: 48px;
+  }
+
+  .about__inner {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .marcas__logo-img {
+    height: 40px;
+  }
+
+  .marcas__logo-img.freightliner-logo {
+    transform: scale(1.1);
+  }
+
+  .marcas__chip {
+    padding: 0 8px;
+  }
+
+  .marcas__track {
+    gap: 32px;
+  }
+}

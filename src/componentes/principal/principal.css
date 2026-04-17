@@ -14,44 +14,39 @@
   display: flex;                       /* Layout flexbox */
   align-items: center;                 /* Centrado vertical */
   background: #0a1a4d;                 /* Fondo azul oscuro por defecto */
-  /* Configuración de imagen de fondo */
-  background-size: cover, cover;        /* Cubre todo el contenedor */
-  background-position: center, center;  /* Centrada */
-  background-repeat: no-repeat, no-repeat;  /* Sin repetición */
-  background-attachment: scroll;        /* Se mueve con el scroll */
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: scroll;
 }
-.hero__slide--active { opacity: 1; z-index: 1; }  /* Slide activo visible */
-.hero__slide:nth-child(2) { background: #0a1a4d; }  /* Fondo específico para slide 2 */
-.hero__slide:nth-child(3) { background: #0a1a4d; }  /* Fondo específico para slide 3 */
+.hero__slide--active { opacity: 1; z-index: 1; }
+.hero__slide:nth-child(2) { background: #0a1a4d; }
+.hero__slide:nth-child(3) { background: #0a1a4d; }
 
-/* Sombra adicional para el slide 3 */
 .hero__slide:nth-child(3)::before {
-  content: '';                          /* Contenido vacío */
-  position: absolute;                   /* Posicionamiento absoluto */
-  left: 0; top: 0;                     /* Esquina superior izquierda */
-  width: 50%; height: 100%;            /* Mitad izquierda */
-  z-index: 1;                          /* Por encima del fondo */
-  background: linear-gradient(to right,  /* Gradiente hacia la derecha */
-    #0a1a4d 0%,                        /* Azul sólido al inicio */
-    #0a1a4d 5%,                        /* Azul sólido */
-    rgba(10, 26, 77, 0.5) 15%,         /* Semi-transparente */
-    transparent 100%                    /* Transparente al final */
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 50%; height: 100%;
+  z-index: 1;
+  background: linear-gradient(to right,
+    #0a1a4d 0%,
+    #0a1a4d 5%,
+    rgba(10, 26, 77, 0.5) 15%,
+    transparent 100%
   );
-  pointer-events: none;                 /* No interfiere con clics */
+  pointer-events: none;
 }
 
-/* Overlay eliminado para evitar fondo gris */
 .hero__overlay {
-  display: none;                        /* No se muestra */
+  display: none;
 }
 
-/* Gradientes alrededor de los camiones */
 .hero__image-gradients {
   position: absolute;
   inset: 0;
   z-index: 1;
   background: 
-    /* Gradiente oval solo en el área de la imagen (izquierda) */
     radial-gradient(ellipse 700px 400px at 25% 55%, 
       transparent 0%, 
       transparent 40%, 
@@ -62,11 +57,9 @@
       #0a1a4d 100%
     );
   pointer-events: none;
-  /* Limitar el gradiente solo al área de la imagen */
   width: 50%;
 }
 
-/* Marco circular difuminado para la imagen */
 .hero__image-frame {
   position: absolute;
   left: 0;
@@ -83,7 +76,6 @@
   position: relative;
   z-index: 2;
   animation: heroIn 0.8s ease-out both;
-  /* Posicionar contenido a la derecha completamente sobre fondo azul */
   margin-left: 50%;
   width: 50%;
   background: transparent !important;
@@ -94,10 +86,10 @@
   justify-content: center;
 }
 
-/* Asegurar que el container no tenga fondo blanco */
 .hero .container {
   background: transparent !important;
 }
+
 @keyframes heroIn {
   from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -147,7 +139,6 @@
   transition: all 0.22s;
   border: 2px solid transparent;
   font-family: var(--font-main);
-  /* Mejorar experiencia táctil */
   min-height: 44px;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
@@ -180,7 +171,7 @@
 }
 .btn__icon { font-size: 1rem; }
 
-/* ===== LOGO BADGE (imagen) ===== */
+/* ===== LOGO BADGE ===== */
 .hero__badge {
   position: absolute;
   right: 20%;
@@ -195,10 +186,8 @@
   background: none !important;
   border: none !important;
   box-shadow: none !important;
-  /* Crear una máscara circular para ocultar el cuadrado */
   border-radius: 50%;
   overflow: hidden;
-  /* Halo de luz sutil detrás del logo */
   filter: drop-shadow(0 0 32px rgba(0, 170, 255, 0.35));
   animation: badgePulse 6s ease-in-out infinite;
 }
@@ -221,15 +210,12 @@
   border: none !important;
   box-shadow: none !important;
   outline: none !important;
-  /* Asegurar que no hay estilos heredados */
   margin: 0 !important;
   padding: 0 !important;
-  /* Aplicar máscara circular directamente a la imagen */
   -webkit-mask: radial-gradient(circle, black 55%, transparent 50%);
   mask: radial-gradient(circle, black 55%, transparent 50%);
 }
 
-/* Limpiar cualquier estilo que pueda afectar la imagen */
 .hero__badge *,
 .hero__badge *::before,
 .hero__badge *::after {
@@ -238,17 +224,7 @@
   box-shadow: none !important;
 }
 
-/* Dots */
-.hero__dots {
-  position: absolute;
-  bottom: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  z-index: 3;
-}
-/* Numbered Dots with Progress */
+/* ===== DOTS ===== */
 .hero__dots {
   position: absolute;
   bottom: 22px;
@@ -267,7 +243,6 @@
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
-  /* Mejorar área táctil */
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
@@ -324,7 +299,6 @@
   transform: translate(-50%, -50%) scale(1.1);
 }
 
-/* Mejorar accesibilidad */
 .hero__dot:focus {
   outline: 2px solid var(--cyan);
   outline-offset: 2px;
@@ -352,12 +326,34 @@
 .statsbar__num { font-family: var(--font-condensed); font-size: 2rem; font-weight: 800; line-height: 1; }
 .statsbar__label { font-size: 0.82rem; color: rgba(255, 255, 255, 0.85); margin-top: 2px; }
 
+/* ===== SPOTLIGHT ===== */
+.hero__image-spotlight {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: 
+    radial-gradient(ellipse 500px 350px at 20% 50%, 
+      transparent 0%, 
+      transparent 35%, 
+      rgba(13, 31, 94, 0.1) 45%,
+      rgba(13, 31, 94, 0.3) 60%,
+      rgba(13, 31, 94, 0.6) 75%,
+      rgba(13, 31, 94, 0.8) 85%,
+      rgba(13, 31, 94, 0.95) 92%,
+      #0d1f5e 100%
+    );
+  pointer-events: none;
+}
+
 /* ===== RESPONSIVE ===== */
+
 @media (max-width: 900px) {
   .hero__badge { display: none; }
   .hero__title { font-size: 2.4rem; }
   
-  /* Ajustar layout para tablet */
   .hero__content {
     margin-left: 40%;
     width: 60%;
@@ -380,11 +376,12 @@
     min-height: 550px; 
   }
   
-  /* Layout móvil: imagen de fondo completa con overlay */
   .hero__slide {
     background-size: cover !important;
     background-position: center center !important;
     align-items: flex-end;
+    background-attachment: scroll;
+    background-blend-mode: normal;
   }
   
   .hero__slide::before {
@@ -406,15 +403,25 @@
   .hero__content {
     margin-left: 0;
     width: 100%;
-    padding: 40px 20px 50px;
+    /* FIX: padding-bottom extra para que los dots no tapen los botones */
+    padding: 40px 20px 110px;
     min-height: auto;
     background: transparent !important;
     position: relative;
     z-index: 2;
   }
+
+  .hero {
+  min-height: 620px;
+}
   
   .hero__image-gradients {
     display: none;
+  }
+  
+  .hero__dots {
+    bottom: 16px;
+    z-index: 10;
   }
   
   .hero__title { 
@@ -426,6 +433,13 @@
     font-size: 1rem;
     margin-bottom: 28px;
     max-width: none;
+  }
+  
+  /* Mejorar contraste del texto sobre las imágenes */
+  .hero__title,
+  .hero__subtitle,
+  .hero__eyebrow {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
   }
   
   .hero__ctas {
@@ -451,20 +465,12 @@
   }
   
   .hero__subtitle { 
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     line-height: 1.6;
   }
   
   .hero__content {
-    padding: 35px 18px 45px;
-  }
-  
-  .hero__subtitle { 
-    font-size: 0.95rem; 
-  }
-  
-  .hero__content {
-    padding: 25px 16px 35px;
+    padding: 30px 16px 110px;
   }
   
   .hero__dots {
@@ -485,14 +491,18 @@
     font-size: 0.9rem;
   }
   
+  /* Stats: grilla 2x2 en tablet pequeño */
   .statsbar__inner { 
-    gap: 24px; 
-    justify-content: flex-start; 
-    padding: 0 8px; 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 16px;
+    padding: 0 20px;
+    justify-items: start;
   }
   
   .statsbar__item {
     gap: 10px;
+    width: 100%;
   }
   
   .statsbar__icon { 
@@ -510,7 +520,7 @@
 
 @media (max-width: 480px) {
   .hero { 
-    min-height: 400px; 
+    min-height: 420px; 
   }
   
   .hero__title { 
@@ -524,7 +534,7 @@
   }
   
   .hero__content {
-    padding: 20px 12px 30px;
+    padding: 20px 12px 70px;
   }
   
   .hero__eyebrow {
@@ -536,20 +546,21 @@
     padding: 20px 0;
   }
   
+  /* FIX: Stats en grilla 2x2 en vez de columna */
   .statsbar__inner {
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 8px;
+    padding: 0 16px;
+    justify-items: start;
   }
   
   .statsbar__item {
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
-    max-width: 200px;
   }
 }
 
-/* Estilos adicionales para dispositivos muy pequeños */
 @media (max-width: 360px) {
   .hero { 
     min-height: 380px; 
@@ -564,7 +575,7 @@
   }
   
   .hero__content {
-    padding: 18px 10px 28px;
+    padding: 18px 10px 65px;
   }
   
   .btn {
@@ -589,9 +600,22 @@
   .hero__dot--active .hero__dot-number {
     font-size: 0.85rem;
   }
+  
+  /* Stats: columna en pantallas muy pequeñas */
+  .statsbar__inner {
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+    gap: 14px;
+  }
+  
+  .statsbar__item {
+    justify-content: center;
+    max-width: 200px;
+  }
 }
 
-/* Mejoras para orientación landscape en móviles */
+/* Landscape móvil */
 @media (max-width: 768px) and (orientation: landscape) {
   .hero {
     min-height: 400px;
@@ -603,7 +627,7 @@
   }
   
   .hero__content {
-    padding: 20px 20px 25px;
+    padding: 20px 20px 60px;
   }
   
   .hero__title {
@@ -625,42 +649,4 @@
     padding: 10px 20px;
     font-size: 0.85rem;
   }
-}
-
-/* Optimización adicional para imágenes en móviles */
-@media (max-width: 768px) {
-  .hero__slide {
-    /* Asegurar que las imágenes mantengan buena calidad */
-    background-attachment: scroll;
-    background-blend-mode: normal;
-  }
-  
-  /* Mejorar contraste del texto sobre las imágenes */
-  .hero__title,
-  .hero__subtitle,
-  .hero__eyebrow {
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-  }
-}
-
-/* Máscara circular de brillo para resaltar los camiones */
-.hero__image-spotlight {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background: 
-    radial-gradient(ellipse 500px 350px at 20% 50%, 
-      transparent 0%, 
-      transparent 35%, 
-      rgba(13, 31, 94, 0.1) 45%,
-      rgba(13, 31, 94, 0.3) 60%,
-      rgba(13, 31, 94, 0.6) 75%,
-      rgba(13, 31, 94, 0.8) 85%,
-      rgba(13, 31, 94, 0.95) 92%,
-      #0d1f5e 100%
-    );
-  pointer-events: none;
 }
