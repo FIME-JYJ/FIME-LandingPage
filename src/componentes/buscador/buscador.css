@@ -100,9 +100,96 @@
 
 /* ===== RESPONSIVE ===== */
 /* Adaptaciones para dispositivos móviles */
+@media (max-width: 900px) {
+  .buscador {
+    padding: 44px 0;
+  }
+  
+  .buscador__box { 
+    padding: 32px 28px;
+  }
+  
+  .buscador__title {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+  
+  .buscador__title-icon {
+    font-size: 1.25rem;
+  }
+}
+
 @media (max-width: 768px) {
-  .buscador__box { padding: 24px 20px; }      /* Menos padding en móviles */
-  .buscador__row, .buscador__search-row { flex-direction: column; }   /* Campos en columna */
+  .buscador {
+    padding: 40px 0;
+  }
+  
+  .buscador__box { 
+    padding: 28px 24px;
+  }
+  
+  .buscador__title {
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+    gap: 8px;
+  }
+  
+  .buscador__row, 
+  .buscador__search-row { 
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  .buscador__row {
+    margin-bottom: 14px;
+  }
+  
   .buscador__select,
-  .buscador__input { min-width: 100%; }        /* Ancho completo */
+  .buscador__input { 
+    min-width: 100%;
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+  }
+  
+  .buscador__btn {
+    width: 100%;
+    justify-content: center;
+    padding: 15px 28px;
+    font-size: 1rem;
+    min-height: 52px;
+    border-radius: 8px;
+  }
+  
+  .buscador__btn:active {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 560px) {
+  .buscador {
+    padding: 36px 0;
+  }
+  
+  .buscador__box {
+    padding: 24px 20px;
+  }
+  
+  .buscador__title {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+  }
+  
+  .buscador__select,
+  .buscador__input {
+    padding: 15px 18px;
+    font-size: 0.96rem;
+  }
+  
+  .buscador__btn {
+    padding: 16px 26px;
+    font-size: 0.98rem;
+  }
 }

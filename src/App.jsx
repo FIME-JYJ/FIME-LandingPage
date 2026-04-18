@@ -56,6 +56,7 @@ export default function App() {
         <>
             <ScrollToHash />
             <Navbar />
+            <ScrollToTop />
             <Routes>
                 {/* RUTA 1: La página principal que ya tienes */}
                 <Route path="/" element={
@@ -73,7 +74,6 @@ export default function App() {
                 <Route path="/catalogo" element={<Catalogo />} />
                 <Route path="/catalogo/:id" element={<DetallePieza />} />
             </Routes>
-            <ScrollToTop />
         </>
     );
 }

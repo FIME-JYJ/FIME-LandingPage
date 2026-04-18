@@ -139,8 +139,116 @@
 /* ===== RESPONSIVE ===== */
 /* Adaptaciones para dispositivos móviles */
 @media (max-width: 900px) {
-  .contacto__grid { grid-template-columns: 1fr; gap: 36px; }  /* Una sola columna */
+  .contacto__grid { 
+    grid-template-columns: 1fr; 
+    gap: 40px; 
+  }
+  
+  .contacto__info {
+    gap: 24px;
+  }
+  
+  .cinfo__icon-wrap {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .cinfo__icon {
+    font-size: 1.3rem;
+  }
+  
+  .cinfo__label {
+    font-size: 0.78rem;
+  }
+  
+  .cinfo__value,
+  .cinfo__phone {
+    font-size: 0.95rem;
+  }
 }
+
+@media (max-width: 768px) {
+  .contacto {
+    padding: 60px 0;
+  }
+  
+  .contacto__grid {
+    gap: 36px;
+  }
+  
+  .contacto__form {
+    gap: 16px;
+  }
+  
+  .cform__input {
+    padding: 14px 18px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+  }
+  
+  .cform__textarea {
+    min-height: 120px;
+    padding: 14px 18px;
+  }
+  
+  .cform__btn {
+    padding: 16px 32px;
+    font-size: 1rem;
+    min-height: 54px;
+    border-radius: 8px;
+  }
+  
+  .cform__btn:active {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+}
+
 @media (max-width: 560px) {
-  .cform__row { grid-template-columns: 1fr; }  /* Campos en columna */
+  .cform__row { 
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .contacto {
+    padding: 50px 0;
+  }
+  
+  .contacto__info {
+    gap: 22px;
+  }
+  
+  .cinfo {
+    gap: 14px;
+  }
+  
+  .cinfo__icon-wrap {
+    width: 46px;
+    height: 46px;
+  }
+  
+  .cinfo__icon {
+    font-size: 1.25rem;
+  }
+  
+  .cinfo__label {
+    font-size: 0.76rem;
+    margin-bottom: 4px;
+  }
+  
+  .cinfo__value,
+  .cinfo__phone {
+    font-size: 0.93rem;
+    line-height: 1.5;
+  }
+  
+  .cform__input {
+    padding: 15px 18px;
+    font-size: 0.96rem;
+  }
+  
+  .cform__btn {
+    padding: 16px 28px;
+    font-size: 0.98rem;
+  }
 }

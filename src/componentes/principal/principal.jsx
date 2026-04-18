@@ -35,6 +35,17 @@ export default function Principal() {
   const [current, setCurrent] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     if (isPaused) return;
@@ -76,27 +87,36 @@ export default function Principal() {
           <div 
             key={i} 
             className={`hero__slide${current === i ? ' hero__slide--active' : ''}`}
-            style={slide.backgroundImage ? {
-              background: `
-                linear-gradient(to right, 
-                  transparent 0%, 
-                  transparent 45%, 
-                  #0a1a4d 50%,
-                  #0a1a4d 100%
-                ),
-                url(${slide.backgroundImage})
-              `,
-              backgroundSize: 'cover, 50% 100%',
-              backgroundPosition: 'center, left center',
-              backgroundRepeat: 'no-repeat, no-repeat'
-            } : {
+            style={slide.backgroundImage ? (
+              isMobile ? {
+                // Móvil: imagen completa sin gradiente
+                backgroundImage: `url(${slide.backgroundImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              } : {
+                // Desktop: diseño original con gradiente
+                background: `
+                  linear-gradient(to right, 
+                    transparent 0%, 
+                    transparent 45%, 
+                    #0a1a4d 50%,
+                    #0a1a4d 100%
+                  ),
+                  url(${slide.backgroundImage})
+                `,
+                backgroundSize: 'cover, 50% 100%',
+                backgroundPosition: 'center, left center',
+                backgroundRepeat: 'no-repeat, no-repeat'
+              }
+            ) : {
               background: '#0a1a4d'
             }}
           >
             <div className="hero__overlay" />
             
-            {/* Gradientes alrededor de los camiones */}
-            {slide.backgroundImage && (
+            {/* Gradientes alrededor de los camiones - solo desktop */}
+            {slide.backgroundImage && !isMobile && (
               <div className="hero__image-gradients"></div>
             )}
             

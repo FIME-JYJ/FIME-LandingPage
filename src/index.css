@@ -84,3 +84,206 @@ button { font-family: var(--font-main); }     /* Botones con fuente consistente 
 
 .section-sub { color: var(--gray-600); font-size: 1rem; }  /* Subtítulo en gris */
 .center { text-align: center; margin-top: 40px; }         /* Centrado con margen superior */
+
+/* Botón con borde (outline) */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 26px;
+  background: transparent;
+  color: var(--navy);
+  border: 2px solid var(--navy);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.22s;
+  font-family: var(--font-main);
+}
+
+.btn-outline:hover {
+  background: var(--navy);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(26, 47, 110, 0.25);
+}
+
+/* ===== ESTILOS RESPONSIVE GLOBALES ===== */
+@media (max-width: 900px) {
+  .container {
+    padding: 0 24px;
+  }
+  
+  .section {
+    padding: 64px 0;
+  }
+  
+  .section-header {
+    margin-bottom: 40px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    letter-spacing: 0.8px;
+  }
+  
+  .section-line {
+    width: 55px;
+    height: 3.5px;
+    margin-bottom: 14px;
+  }
+  
+  .section-sub {
+    font-size: 0.98rem;
+  }
+  
+  .center {
+    margin-top: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+  
+  .section {
+    padding: 56px 0;
+  }
+  
+  .section-header {
+    margin-bottom: 36px;
+  }
+  
+  .section-title {
+    font-size: 1.85rem;
+    margin-bottom: 10px;
+    letter-spacing: 0.6px;
+  }
+  
+  .section-line {
+    width: 50px;
+    height: 3.5px;
+    margin-bottom: 12px;
+  }
+  
+  .section-sub {
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+  
+  .center {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 560px) {
+  .container {
+    padding: 0 18px;
+  }
+  
+  .section {
+    padding: 48px 0;
+  }
+  
+  .section-header {
+    margin-bottom: 32px;
+  }
+  
+  .section-title {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+  }
+  
+  .section-line {
+    width: 48px;
+    height: 3px;
+    margin-bottom: 12px;
+  }
+  
+  .section-sub {
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+  
+  .center {
+    margin-top: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+  
+  .section {
+    padding: 44px 0;
+  }
+  
+  .section-header {
+    margin-bottom: 28px;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+  
+  .section-line {
+    width: 45px;
+    height: 3px;
+  }
+  
+  .section-sub {
+    font-size: 0.92rem;
+  }
+  
+  .center {
+    margin-top: 26px;
+  }
+}
+
+/* Mejoras de accesibilidad táctil para móviles */
+@media (max-width: 768px) {
+  button,
+  a.btn,
+  .btn-outline,
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Mejorar área táctil de enlaces */
+  a {
+    -webkit-tap-highlight-color: rgba(0, 170, 255, 0.2);
+  }
+  
+  /* Mejorar legibilidad en móviles */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Optimizaciones para pantallas pequeñas */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 14px;
+  }
+  
+  .section {
+    padding: 40px 0;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .section-sub {
+    font-size: 0.9rem;
+  }
+}

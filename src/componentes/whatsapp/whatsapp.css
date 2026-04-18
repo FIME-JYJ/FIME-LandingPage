@@ -242,16 +242,94 @@
 }
 
 /* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .wa-widget {
+    bottom: 22px;
+    right: 22px;
+  }
+  
+  .wa-card {
+    width: 290px;
+  }
+  
+  .wa-fab {
+    width: 56px;
+    height: 56px;
+    font-size: 26px;
+  }
+}
+
 @media (max-width: 768px) {
   .wa-widget {
-    bottom: 70px;
+    bottom: 20px;
     right: 20px;
   }
 
   .wa-card {
-    width: 270px;
+    width: 280px;
+  }
+  
+  .wa-card__header {
+    padding: 12px 14px;
+  }
+  
+  .wa-card__header-brand {
+    font-size: 11px;
+  }
+  
+  .wa-card__header-brand strong {
+    font-size: 12px;
+  }
+  
+  .wa-card__body {
+    padding: 14px;
+  }
+  
+  .wa-bubble {
+    font-size: 13px;
+    padding: 11px 14px;
+  }
+  
+  .wa-option {
+    padding: 11px 18px;
+    font-size: 12px;
+    min-height: 48px;
+  }
+  
+  .wa-option__label {
+    font-size: 12px;
+  }
+  
+  .wa-option__number {
+    font-size: 10px;
+  }
+  
+  .wa-option__icon {
+    font-size: 17px;
   }
 
+  .wa-fab {
+    width: 54px;
+    height: 54px;
+    font-size: 25px;
+  }
+  
+  .wa-fab__icon-close {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 560px) {
+  .wa-widget {
+    bottom: 18px;
+    right: 18px;
+  }
+  
+  .wa-card {
+    width: calc(100vw - 40px);
+    max-width: 300px;
+  }
+  
   .wa-fab {
     width: 52px;
     height: 52px;
@@ -260,7 +338,76 @@
 }
 
 @media (max-width: 480px) {
+  .wa-widget {
+    bottom: 16px;
+    right: 16px;
+  }
+  
   .wa-card {
-    width: 240px;
+    width: calc(100vw - 36px);
+    max-width: 280px;
+  }
+  
+  .wa-card__header {
+    padding: 11px 13px;
+  }
+  
+  .wa-card__body {
+    padding: 13px;
+  }
+  
+  .wa-bubble {
+    font-size: 12px;
+    padding: 10px 13px;
+  }
+  
+  .wa-options {
+    gap: 7px;
+  }
+  
+  .wa-option {
+    padding: 10px 16px;
+    font-size: 11px;
+    min-height: 46px;
+  }
+  
+  .wa-option__label {
+    font-size: 11px;
+  }
+  
+  .wa-option__number {
+    font-size: 9px;
+  }
+  
+  .wa-option__icon {
+    font-size: 16px;
+  }
+  
+  .wa-fab {
+    width: 50px;
+    height: 50px;
+    font-size: 23px;
+  }
+  
+  .wa-fab__icon-close {
+    font-size: 20px;
+  }
+}
+
+/* Mejoras para dispositivos táctiles */
+@media (max-width: 768px) {
+  .wa-fab,
+  .wa-option,
+  .wa-card__close {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  
+  .wa-option:active {
+    transform: scale(0.98);
+  }
+  
+  .wa-fab:active {
+    transform: scale(1.05);
   }
 }

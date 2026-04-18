@@ -15,29 +15,35 @@
   align-items: center;                 /* Centrado vertical */
   background: #0a1a4d;                 /* Fondo azul oscuro por defecto */
   /* Configuración de imagen de fondo */
-  background-size: cover, cover;        /* Cubre todo el contenedor */
-  background-position: center, center;  /* Centrada */
-  background-repeat: no-repeat, no-repeat;  /* Sin repetición */
-  background-attachment: scroll;        /* Se mueve con el scroll */
+  background-size: cover;              /* Cubre todo el contenedor */
+  background-position: center;         /* Centrada */
+  background-repeat: no-repeat;        /* Sin repetición */
+  background-attachment: scroll;       /* Se mueve con el scroll */
 }
-.hero__slide--active { opacity: 1; z-index: 1; }  /* Slide activo visible */
-.hero__slide:nth-child(2) { background: #0a1a4d; }  /* Fondo específico para slide 2 */
-.hero__slide:nth-child(3) { background: #0a1a4d; }  /* Fondo específico para slide 3 */
 
-/* Sombra adicional para el slide 3 */
-.hero__slide:nth-child(3)::before {
-  content: '';                          /* Contenido vacío */
-  position: absolute;                   /* Posicionamiento absoluto */
-  left: 0; top: 0;                     /* Esquina superior izquierda */
-  width: 50%; height: 100%;            /* Mitad izquierda */
-  z-index: 1;                          /* Por encima del fondo */
-  background: linear-gradient(to right,  /* Gradiente hacia la derecha */
-    #0a1a4d 0%,                        /* Azul sólido al inicio */
-    #0a1a4d 5%,                        /* Azul sólido */
-    rgba(10, 26, 77, 0.5) 15%,         /* Semi-transparente */
-    transparent 100%                    /* Transparente al final */
-  );
-  pointer-events: none;                 /* No interfiere con clics */
+.hero__slide--active { opacity: 1; z-index: 1; }  /* Slide activo visible */
+
+/* Gradientes alrededor de los camiones - solo desktop */
+@media (min-width: 769px) {
+  .hero__image-gradients {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: 
+      /* Gradiente oval solo en el área de la imagen (izquierda) */
+      radial-gradient(ellipse 700px 400px at 25% 55%, 
+        transparent 0%, 
+        transparent 40%, 
+        rgba(10, 26, 77, 0.1) 60%,
+        rgba(10, 26, 77, 0.3) 75%,
+        rgba(10, 26, 77, 0.6) 85%,
+        rgba(10, 26, 77, 0.8) 92%,
+        #0a1a4d 100%
+      );
+    pointer-events: none;
+    /* Limitar el gradiente solo al área de la imagen */
+    width: 50%;
+  }
 }
 
 /* Overlay eliminado para evitar fondo gris */
@@ -45,53 +51,25 @@
   display: none;                        /* No se muestra */
 }
 
-/* Gradientes alrededor de los camiones */
-.hero__image-gradients {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: 
-    /* Gradiente oval solo en el área de la imagen (izquierda) */
-    radial-gradient(ellipse 700px 400px at 25% 55%, 
-      transparent 0%, 
-      transparent 40%, 
-      rgba(10, 26, 77, 0.1) 60%,
-      rgba(10, 26, 77, 0.3) 75%,
-      rgba(10, 26, 77, 0.6) 85%,
-      rgba(10, 26, 77, 0.8) 92%,
-      #0a1a4d 100%
-    );
-  pointer-events: none;
-  /* Limitar el gradiente solo al área de la imagen */
-  width: 50%;
-}
-
-/* Marco circular difuminado para la imagen */
-.hero__image-frame {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  z-index: 1;
-  background: 
-    radial-gradient(circle 550px at 25% 50%, transparent 50%, rgba(13, 31, 94, 0.1) 60%, rgba(13, 31, 94, 0.4) 75%, rgba(13, 31, 94, 0.8) 88%, #0d1f5e 95%);
-  pointer-events: none;
-}
-
 .hero__content {
   position: relative;
   z-index: 2;
   animation: heroIn 0.8s ease-out both;
-  /* Posicionar contenido a la derecha completamente sobre fondo azul */
-  margin-left: 50%;
-  width: 50%;
   background: transparent !important;
   padding: 60px 40px;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+/* Posicionamiento para desktop */
+@media (min-width: 769px) {
+  .hero__content {
+    /* Posicionar contenido a la derecha completamente sobre fondo azul */
+    margin-left: 50%;
+    width: 50%;
+    min-height: 100vh;
+  }
 }
 
 /* Asegurar que el container no tenga fondo blanco */
@@ -376,100 +354,267 @@
 
 @media (max-width: 768px) {
   .hero { 
-    height: auto; 
-    min-height: 550px; 
+    height: 60vh;
+    min-height: 500px;
+    max-height: 650px;
   }
   
-  /* Layout móvil: imagen de fondo completa con overlay */
+  /* Layout móvil: imagen de fondo completa SIN overlay ni gradientes */
   .hero__slide {
     background-size: cover !important;
     background-position: center center !important;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
+    /* Eliminar el fondo azul del desktop */
+    background-color: transparent !important;
   }
   
-  .hero__slide::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(10, 26, 77, 0.9) 0%,
-      rgba(10, 26, 77, 0.75) 25%,
-      rgba(10, 26, 77, 0.5) 45%,
-      rgba(10, 26, 77, 0.25) 65%,
-      rgba(10, 26, 77, 0.1) 80%,
-      transparent 100%
-    );
-    z-index: 1;
+  /* Eliminar TODOS los overlays y gradientes en móviles */
+  .hero__slide::before,
+  .hero__image-gradients,
+  .hero__image-frame {
+    display: none !important;
+  }
+  
+  /* Eliminar el gradiente del slide 3 específicamente */
+  .hero__slide:nth-child(3)::before {
+    display: none !important;
   }
   
   .hero__content {
     margin-left: 0;
     width: 100%;
-    padding: 40px 20px 50px;
+    padding: 50px 24px;
     min-height: auto;
     background: transparent !important;
     position: relative;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
   
-  .hero__image-gradients {
-    display: none;
+  /* Asegurar que NO haya gradientes en móviles */
+  .hero__image-gradients,
+  .hero__image-frame {
+    display: none !important;
+  }
+  
+  .hero__eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 2.5px;
+    margin-bottom: 14px;
   }
   
   .hero__title { 
-    font-size: 2.2rem; 
-    margin-bottom: 16px;
+    font-size: 2.4rem; 
+    margin-bottom: 18px;
+    line-height: 1.1;
+    letter-spacing: 0.5px;
+    max-width: 100%;
   }
   
   .hero__subtitle { 
-    font-size: 1rem;
-    margin-bottom: 28px;
-    max-width: none;
+    font-size: 1.05rem;
+    margin-bottom: 32px;
+    max-width: 100%;
+    line-height: 1.65;
   }
   
   .hero__ctas {
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
+    width: 100%;
+    max-width: 400px;
   }
   
   .btn {
     justify-content: center;
-    padding: 14px 24px;
-    font-size: 0.95rem;
+    padding: 16px 28px;
+    font-size: 1rem;
+    min-height: 52px;
+    font-weight: 700;
+    border-radius: 8px;
+    width: 100%;
+  }
+  
+  .btn:active {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  
+  .hero__dots {
+    bottom: 20px;
+    gap: 14px;
+  }
+  
+  .hero__dot {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .statsbar {
+    padding: 32px 0;
+  }
+  
+  .statsbar__inner {
+    gap: 28px;
+    padding: 0 12px;
+  }
+  
+  .statsbar__item {
+    gap: 12px;
+  }
+  
+  .statsbar__icon {
+    font-size: 1.8rem;
+  }
+  
+  .statsbar__num {
+    font-size: 1.8rem;
+  }
+  
+  .statsbar__label {
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 600px) {
   .hero { 
-    min-height: 500px; 
+    height: 55vh;
+    min-height: 480px;
+    max-height: 600px;
   }
   
-  .hero__title { 
-    font-size: 2rem; 
-    line-height: 1.1;
-  }
-  
-  .hero__subtitle { 
-    font-size: 1.05rem;
-    line-height: 1.6;
+  /* Sin overlay - imágenes completamente visibles */
+  .hero__slide::before {
+    display: none;
   }
   
   .hero__content {
-    padding: 35px 18px 45px;
+    padding: 45px 20px;
+  }
+  
+  .hero__eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  
+  .hero__title { 
+    font-size: 2.1rem; 
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  
+  .hero__subtitle { 
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  
+  .btn {
+    padding: 15px 26px;
+    font-size: 0.95rem;
+  }
+  
+  .hero__ctas {
+    max-width: 360px;
+  }
+  
+  .hero__dots {
+    bottom: 18px;
+    gap: 12px;
+  }
+  
+  .hero__dot {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .hero__dot-number {
+    font-size: 0.85rem;
+  }
+  
+  .hero__dot--active .hero__dot-number {
+    font-size: 0.95rem;
+  }
+  
+  .statsbar {
+    padding: 28px 0;
+  }
+  
+  .statsbar__inner { 
+    gap: 24px; 
+    justify-content: flex-start; 
+    padding: 0 10px; 
+  }
+  
+  .statsbar__item {
+    gap: 10px;
+  }
+  
+  .statsbar__icon { 
+    font-size: 1.7rem; 
+  }
+  
+  .statsbar__num { 
+    font-size: 1.7rem; 
+  }
+  
+  .statsbar__label { 
+    font-size: 0.78rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  .hero { 
+    height: 50vh;
+    min-height: 450px;
+    max-height: 550px;
+  }
+  
+  /* Sin overlay - imágenes completamente visibles */
+  .hero__slide::before {
+    display: none;
+  }
+  
+  .hero__content {
+    padding: 40px 16px;
+  }
+  
+  .hero__eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 1.8px;
+    margin-bottom: 10px;
+  }
+  
+  .hero__title { 
+    font-size: 1.85rem; 
+    line-height: 1.15;
+    margin-bottom: 14px;
   }
   
   .hero__subtitle { 
     font-size: 0.95rem; 
+    line-height: 1.6;
+    margin-bottom: 26px;
   }
   
-  .hero__content {
-    padding: 25px 16px 35px;
+  .btn {
+    padding: 14px 24px;
+    font-size: 0.92rem;
+  }
+  
+  .hero__ctas {
+    max-width: 340px;
   }
   
   .hero__dots {
     bottom: 16px;
-    gap: 12px;
+    gap: 10px;
   }
   
   .hero__dot {
@@ -485,96 +630,55 @@
     font-size: 0.9rem;
   }
   
-  .statsbar__inner { 
-    gap: 24px; 
-    justify-content: flex-start; 
-    padding: 0 8px; 
-  }
-  
-  .statsbar__item {
-    gap: 10px;
-  }
-  
-  .statsbar__icon { 
-    font-size: 1.6rem; 
-  }
-  
-  .statsbar__num { 
-    font-size: 1.6rem; 
-  }
-  
-  .statsbar__label { 
-    font-size: 0.75rem; 
-  }
-}
-
-@media (max-width: 480px) {
-  .hero { 
-    min-height: 400px; 
-  }
-  
-  .hero__title { 
-    font-size: 1.7rem; 
-    line-height: 1.1;
-  }
-  
-  .hero__subtitle { 
-    font-size: 0.9rem; 
-    line-height: 1.6;
-  }
-  
-  .hero__content {
-    padding: 20px 12px 30px;
-  }
-  
-  .hero__eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-  }
-  
   .statsbar {
-    padding: 20px 0;
+    padding: 24px 0;
   }
   
   .statsbar__inner {
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 20px;
   }
   
   .statsbar__item {
     justify-content: center;
     width: 100%;
-    max-width: 200px;
+    max-width: 220px;
   }
 }
 
 /* Estilos adicionales para dispositivos muy pequeños */
 @media (max-width: 360px) {
   .hero { 
-    min-height: 380px; 
-  }
-  
-  .hero__title { 
-    font-size: 1.5rem; 
-  }
-  
-  .hero__subtitle { 
-    font-size: 0.85rem; 
+    height: 48vh;
+    min-height: 420px;
+    max-height: 500px;
   }
   
   .hero__content {
-    padding: 18px 10px 28px;
+    padding: 35px 14px;
+  }
+  
+  .hero__title { 
+    font-size: 1.7rem; 
+  }
+  
+  .hero__subtitle { 
+    font-size: 0.9rem; 
   }
   
   .btn {
-    padding: 12px 20px;
+    padding: 13px 22px;
     font-size: 0.9rem;
   }
   
+  .hero__ctas {
+    max-width: 320px;
+  }
+  
   .hero__dots {
-    gap: 10px;
-    bottom: 12px;
+    gap: 8px;
+    bottom: 14px;
   }
   
   .hero__dot {
@@ -594,6 +698,7 @@
 /* Mejoras para orientación landscape en móviles */
 @media (max-width: 768px) and (orientation: landscape) {
   .hero {
+    height: 85vh;
     min-height: 400px;
   }
   
@@ -602,44 +707,110 @@
     background-position: center center !important;
   }
   
+  /* Sin overlay en landscape tampoco */
+  .hero__slide::before {
+    display: none;
+  }
+  
   .hero__content {
-    padding: 20px 20px 25px;
+    padding: 30px 20px;
   }
   
   .hero__title {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     margin-bottom: 12px;
   }
   
   .hero__subtitle {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     margin-bottom: 20px;
   }
   
   .hero__ctas {
     flex-direction: row;
     gap: 10px;
+    max-width: 500px;
   }
   
   .btn {
-    padding: 10px 20px;
-    font-size: 0.85rem;
+    padding: 12px 22px;
+    font-size: 0.9rem;
+    width: auto;
+    flex: 1;
+  }
+  
+  .hero__dots {
+    bottom: 15px;
   }
 }
 
 /* Optimización adicional para imágenes en móviles */
 @media (max-width: 768px) {
   .hero__slide {
-    /* Asegurar que las imágenes mantengan buena calidad */
+    /* Asegurar que las imágenes mantengan buena calidad y centrado */
     background-attachment: scroll;
     background-blend-mode: normal;
   }
   
-  /* Mejorar contraste del texto sobre las imágenes */
-  .hero__title,
-  .hero__subtitle,
+  /* Sombras MUY FUERTES para texto sin overlay */
+  .hero__title {
+    text-shadow: 
+      0 0 20px rgba(0, 0, 0, 0.9),
+      0 0 40px rgba(0, 0, 0, 0.8),
+      0 2px 4px rgba(0, 0, 0, 1),
+      0 4px 8px rgba(0, 0, 0, 0.9),
+      0 8px 16px rgba(0, 0, 0, 0.7),
+      2px 2px 4px rgba(0, 0, 0, 1);
+    font-weight: 900;
+    letter-spacing: 1px;
+  }
+  
+  .hero__subtitle {
+    text-shadow: 
+      0 0 15px rgba(0, 0, 0, 0.9),
+      0 0 30px rgba(0, 0, 0, 0.8),
+      0 2px 4px rgba(0, 0, 0, 1),
+      0 4px 8px rgba(0, 0, 0, 0.9),
+      2px 2px 4px rgba(0, 0, 0, 1);
+    font-weight: 600;
+  }
+  
   .hero__eyebrow {
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    text-shadow: 
+      0 0 10px rgba(0, 0, 0, 0.9),
+      0 2px 4px rgba(0, 0, 0, 1),
+      0 4px 8px rgba(0, 0, 0, 0.9),
+      1px 1px 3px rgba(0, 0, 0, 1);
+    font-weight: 800;
+  }
+  
+  /* Asegurar que el contenido esté siempre centrado */
+  .hero__content > * {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Botones con fondo más sólido y sombras fuertes */
+  .btn {
+    box-shadow: 
+      0 0 20px rgba(0, 0, 0, 0.6),
+      0 4px 12px rgba(0, 0, 0, 0.5),
+      0 8px 24px rgba(0, 0, 0, 0.4);
+    font-weight: 800;
+  }
+  
+  .btn--primary {
+    background: var(--cyan);
+    border-color: var(--cyan);
+    border-width: 3px;
+  }
+  
+  .btn--ghost {
+    background: rgba(255, 255, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.95);
+    border-width: 3px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 }
 

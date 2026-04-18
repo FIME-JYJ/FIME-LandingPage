@@ -226,3 +226,179 @@
 }
 
 
+
+/* ===== RESPONSIVE MEJORADO ===== */
+@media (max-width: 900px) {
+  .catalogo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .vehicle-card {
+    border-radius: 10px;
+  }
+  
+  .vehicle-img {
+    height: 180px;
+    padding: 12px;
+  }
+  
+  .vehicle-info {
+    padding: 18px;
+  }
+  
+  .vehicle-info h3 {
+    font-size: 0.98rem;
+    line-height: 1.35;
+  }
+  
+  .vehicle-tag {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+  
+  .vehicle-btn {
+    padding: 11px;
+    font-size: 0.88rem;
+  }
+  
+  .no-results {
+    padding: 50px 20px;
+  }
+  
+  .no-results h3 {
+    font-size: 1.6rem;
+  }
+  
+  .no-results p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .catalogo-main {
+    margin-top: 40px;
+  }
+  
+  .catalogo-grid {
+    gap: 18px;
+  }
+  
+  .vehicle-card {
+    border-radius: 12px;
+  }
+  
+  .vehicle-img {
+    height: 170px;
+  }
+  
+  .vehicle-info {
+    padding: 16px;
+  }
+  
+  .vehicle-info h3 {
+    font-size: 0.96rem;
+    margin: 8px 0;
+  }
+  
+  .vehicle-specs {
+    font-size: 0.88rem;
+    margin: 4px 0;
+  }
+  
+  .vehicle-btn {
+    padding: 12px;
+    font-size: 0.9rem;
+    min-height: 46px;
+    border-radius: 8px;
+  }
+  
+  .vehicle-btn:active {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 560px) {
+  .catalogo-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .vehicle-card {
+    max-width: 100%;
+  }
+  
+  .vehicle-img {
+    height: 200px;
+    padding: 16px;
+  }
+  
+  .vehicle-img img {
+    max-width: 85%;
+  }
+  
+  .vehicle-info {
+    padding: 18px;
+  }
+  
+  .vehicle-info h3 {
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+  
+  .vehicle-tag {
+    font-size: 0.78rem;
+    padding: 5px 12px;
+  }
+  
+  .vehicle-specs {
+    font-size: 0.9rem;
+    margin: 5px 0;
+  }
+  
+  .vehicle-btn {
+    padding: 14px;
+    font-size: 0.95rem;
+    min-height: 50px;
+    font-weight: 700;
+  }
+  
+  .no-results {
+    padding: 45px 18px;
+    margin-top: 16px;
+  }
+  
+  .no-results h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+  
+  .no-results p {
+    font-size: 0.98rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .catalogo-main {
+    margin-top: 36px;
+  }
+  
+  .vehicle-img {
+    height: 180px;
+  }
+  
+  .vehicle-info h3 {
+    font-size: 0.98rem;
+  }
+  
+  .vehicle-specs {
+    font-size: 0.88rem;
+  }
+  
+  .vehicle-btn {
+    padding: 13px;
+    font-size: 0.93rem;
+    min-height: 48px;
+  }
+}

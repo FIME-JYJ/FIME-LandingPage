@@ -1,129 +1,52 @@
-/* ===== BOTÓN SCROLL TO TOP ===== */
-/* Botón flotante para volver al inicio de la página */
-.scroll-to-top {
-  position: fixed;                      /* Posición fija en la pantalla */
-  bottom: 160px;                       /* Posición desde abajo (más arriba que WhatsApp) */
-  right: 30px;                         /* Posición desde la derecha */
-  width: 50px; height: 50px;           /* Tamaño cuadrado */
-  background: var(--cyan);             /* Fondo celeste */
-  border: none;                        /* Sin borde */
-  border-radius: 50%;                  /* Forma circular */
-  cursor: pointer;                     /* Cursor de mano */
-  display: flex;                       /* Layout flexbox */
-  align-items: center;                 /* Centrado vertical */
-  justify-content: center;             /* Centrado horizontal */
-  box-shadow: 0 4px 20px rgba(0, 170, 255, 0.3);  /* Sombra celeste */
-  transition: all 0.3s ease;           /* Transición suave */
-  z-index: 999;                       /* Por debajo de WhatsApp */
-  opacity: 0;                         /* Invisible por defecto */
-  visibility: hidden;                 /* Oculto por defecto */
-  transform: translateY(20px);        /* Desplazado hacia abajo */
-  /* Mejoras para dispositivos táctiles */
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
+/* Botón simple y funcional de scroll to top */
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 160px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #00aaff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
 }
 
-/* Estado visible del botón */
-.scroll-to-top--visible {
-  opacity: 1;                          /* Completamente visible */
-  visibility: visible;                 /* Visible */
-  transform: translateY(0);            /* Posición normal */
-  animation: scrollTopFadeIn 0.3s ease-out;  /* Animación de entrada */
+.scroll-to-top-btn:hover {
+  background-color: #007acc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
-/* Estados de interacción */
-.scroll-to-top:hover,
-.scroll-to-top:focus {
-  background: var(--cyan-dark);        /* Fondo más oscuro */
-  transform: translateY(-3px);         /* Elevación */
-  box-shadow: 0 8px 30px rgba(0, 170, 255, 0.4);  /* Sombra más pronunciada */
+.scroll-to-top-btn:active {
+  transform: translateY(0);
+  background-color: #005999;
 }
 
-.scroll-to-top:active {
-  transform: translateY(-1px);         /* Menos elevación al presionar */
-  box-shadow: 0 4px 15px rgba(0, 170, 255, 0.5);  /* Sombra reducida */
-}
-
-/* Icono dentro del botón */
-.scroll-to-top__icon {
-  color: var(--white);                 /* Color blanco */
-  font-size: 1.2rem;                   /* Tamaño del icono */
-  transition: transform 0.2s ease;     /* Transición suave */
-}
-
-.scroll-to-top:hover .scroll-to-top__icon {
-  transform: translateY(-2px);         /* Movimiento hacia arriba en hover */
-}
-
-/* Mejoras de accesibilidad */
-.scroll-to-top:focus {
-  outline: 2px solid var(--white);     /* Outline blanco para focus */
-  outline-offset: 2px;                /* Separación del outline */
-}
-
-/* === ADAPTACIONES RESPONSIVE === */
-/* Ajustes para diferentes tamaños de pantalla */
+/* Responsive */
 @media (max-width: 768px) {
-  .scroll-to-top {
-    bottom: 140px;                     /* Más arriba que WhatsApp móvil */
-    right: 20px;                       /* Menos margen derecho */
-    width: 45px; height: 45px;         /* Tamaño más pequeño */
-  }
-  
-  .scroll-to-top__icon {
-    font-size: 1.1rem;                 /* Icono más pequeño */
+  .scroll-to-top-btn {
+    bottom: 140px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .scroll-to-top {
-    bottom: 135px;                     /* Ajuste fino para móviles pequeños */
-    right: 16px;                       /* Margen mínimo */
-    width: 42px; height: 42px;         /* Tamaño aún más pequeño */
-  }
-  
-  .scroll-to-top__icon {
-    font-size: 1rem;                   /* Icono más pequeño */
-  }
-}
-
-/* === ANIMACIONES === */
-/* Animación de entrada suave */
-@keyframes scrollTopFadeIn {
-  from {
-    opacity: 0;                        /* Invisible */
-    transform: translateY(20px) scale(0.8);  /* Desplazado y pequeño */
-  }
-  to {
-    opacity: 1;                        /* Visible */
-    transform: translateY(0) scale(1); /* Posición y tamaño normal */
-  }
-}
-
-/* === VARIANTES DE COLOR === */
-/* Variante con colores alternativos para diferentes secciones */
-.scroll-to-top--navy {
-  background: var(--navy);             /* Fondo azul oscuro */
-  box-shadow: 0 4px 20px rgba(26, 47, 110, 0.3);  /* Sombra azul */
-}
-
-.scroll-to-top--navy:hover,
-.scroll-to-top--navy:focus {
-  background: var(--navy-dark);        /* Fondo más oscuro */
-  box-shadow: 0 8px 30px rgba(26, 47, 110, 0.4);  /* Sombra más pronunciada */
-}
-
-/* === EFECTO DE PULSO === */
-/* Efecto de pulso sutil cuando está visible */
-.scroll-to-top--visible {
-  animation: scrollTopFadeIn 0.3s ease-out, scrollTopPulse 3s ease-in-out infinite 2s;
-}
-
-@keyframes scrollTopPulse {
-  0%, 100% {
-    box-shadow: 0 4px 20px rgba(0, 170, 255, 0.3);  /* Sombra normal */
-  }
-  50% {
-    box-shadow: 0 4px 25px rgba(0, 170, 255, 0.5);  /* Sombra más intensa */
+  .scroll-to-top-btn {
+    bottom: 130px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
   }
 }

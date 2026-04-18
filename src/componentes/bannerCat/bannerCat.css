@@ -121,3 +121,192 @@
     stroke-linecap: round;
     transition: stroke-dasharray 0.3s ease; /* Transición del progreso */
 }
+
+/* ===== RESPONSIVE MEJORADO ===== */
+@media (max-width: 900px) {
+  .banner-cat-container {
+    height: 50vh;
+    min-height: 400px;
+  }
+  
+  .content h1 {
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+  }
+  
+  .separator {
+    height: 35px;
+    margin: 12px auto;
+  }
+  
+  .content p {
+    font-size: 1.1rem;
+  }
+  
+  .carousel-indicators {
+    bottom: 25px;
+    right: 40px;
+    gap: 16px;
+  }
+  
+  .indicator-circle {
+    width: 54px;
+    height: 54px;
+  }
+  
+  .circle-number {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-cat-container {
+    height: 45vh;
+    min-height: 380px;
+  }
+  
+  .content {
+    padding: 24px 20px;
+    max-width: 90%;
+  }
+  
+  .content h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  
+  .separator {
+    height: 32px;
+    width: 3px;
+    margin: 14px auto;
+  }
+  
+  .content p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+  
+  .carousel-indicators {
+    bottom: 20px;
+    right: 50%;
+    transform: translateX(50%);
+    gap: 14px;
+  }
+  
+  .indicator-circle {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .circle-number {
+    font-size: 1.05rem;
+  }
+  
+  .circle-bg,
+  .circle {
+    stroke-width: 2.8;
+  }
+}
+
+@media (max-width: 560px) {
+  .banner-cat-container {
+    height: 40vh;
+    min-height: 350px;
+  }
+  
+  .content {
+    padding: 20px 18px;
+  }
+  
+  .content h1 {
+    font-size: 1.7rem;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  
+  .separator {
+    height: 28px;
+    width: 2.5px;
+    margin: 12px auto;
+  }
+  
+  .content p {
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+  
+  .carousel-indicators {
+    bottom: 18px;
+    gap: 12px;
+  }
+  
+  .indicator-circle {
+    width: 46px;
+    height: 46px;
+  }
+  
+  .circle-number {
+    font-size: 1rem;
+  }
+  
+  .circle-bg,
+  .circle {
+    stroke-width: 3;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-cat-container {
+    height: 38vh;
+    min-height: 320px;
+  }
+  
+  .content h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .separator {
+    height: 26px;
+    margin: 10px auto;
+  }
+  
+  .content p {
+    font-size: 0.92rem;
+  }
+  
+  .carousel-indicators {
+    bottom: 16px;
+    gap: 10px;
+  }
+  
+  .indicator-circle {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .circle-number {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mejoras para orientación landscape en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+  .banner-cat-container {
+    height: 70vh;
+    min-height: 300px;
+  }
+  
+  .content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .content p {
+    font-size: 1rem;
+  }
+  
+  .carousel-indicators {
+    bottom: 15px;
+  }
+}
